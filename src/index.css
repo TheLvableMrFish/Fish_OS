@@ -2,10 +2,17 @@
 
 :root{
   --hover-color: hsl(0, 0%, 91%);
+  --open-color: hsl(0, 0%, 89%);
 }
 
 html{
   overflow: hidden;
+  user-select: none;
+}
+
+/* General */
+.hidden{
+  display: none;
 }
 
 /* Desktop */
@@ -13,6 +20,7 @@ html{
   background-color: gray;
   height: 100vh;
   width: 100%;
+  z-index: -99;
 }
 
 /* Footer */
@@ -50,6 +58,18 @@ html{
   margin: 0 !important;
   height: 100%;
   width: 100% !important;
+  padding-left: 40px !important;
+}
+
+.search-bar{
+  position: relative;
+}
+
+.search-icon{
+  position: absolute;
+  height: 23px;
+  top: 50%;
+  transform: rotate(90deg) translate(-50%, -50%);
 }
 
 .widgets{
@@ -89,4 +109,159 @@ footer .col-2{
   background-color: var(--hover-color);
   cursor: pointer;
   box-shadow: none;
+}
+
+/* DateTime */
+
+.date-time{
+  height: 100%;
+  position: absolute;
+  right: 0;
+  padding: 4px 6px 0 6px;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+}
+
+.date-time:hover{
+  cursor: pointer;
+  background-color: var(--hover-color);
+}
+
+.date-time-info{
+  height: 500px;
+  width: 260px;
+  position: absolute;
+  background-color: var(--open-color);
+  right: 0px;
+  bottom: 50px;
+  box-shadow: -5px -5px 20px 1px rgba(0,0,0,0.2);
+}
+
+.date-time-info{
+  cursor: default;
+}
+
+.date-time-info-line-top{
+  width: 100%;
+  background-color: rgba(0,0,0,0.3);
+  height: 1px;
+  position: absolute;
+  bottom: 0px;
+}
+
+.date-time-info-line-bottom{
+  width: 100%;
+  background-color: rgba(0,0,0,0.3);
+  height: 1px;
+  position: absolute;
+  bottom: -250px;
+}
+
+.time-info{
+  height: 100px;
+  width: 100%;
+  position: relative;
+}
+
+.current-time{
+  position: absolute;
+  left: -1px;
+  top: 40%;
+  transform: translate(20px, -50%);
+  font-size: 32px;
+}
+
+.current-date{
+  position: absolute;
+  left: 0;
+  top: 70%;
+  transform: translate(20px, -50%);
+}
+
+/* Calander */
+
+.calander{
+  height: 250px;
+  width: 100%;
+  position: absolute;
+  top: 100px;
+}
+
+.calander-date-box{
+  width: 100%;
+  margin-left: 0;
+  padding-left: 0;
+  padding-top: 5px;
+}
+.calander-date{
+  display: flex;
+  margin-left: 0;
+  margin-bottom: 4px;
+  padding-left: 20px;
+}
+
+.calander-toggle{
+  width: 20px;
+  margin-bottom: 4px;
+  margin-left: -9px;
+}
+
+.calander-toggle:hover{
+  cursor: pointer;
+  border: 1px solid #000;
+  border-radius: 50%;
+
+}
+
+.calander-week-day{
+  padding: 4px 8px;
+}
+
+.calander-week-day-list{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px 10px 10px;
+  width: 100%;
+  padding: 0;
+  margin: 0 0 2px 0;
+  list-style-type: none;
+}
+
+.calander-week-day-item{
+  font-size: 10px;
+  text-align: center;
+  width: calc(100%/7);
+}
+
+.calander-day-list{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.calander-day-item{
+  font-size: 10px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1px;
+}
+
+.calander-day-item:hover{
+  background-color: hsl(0, 0%, 95%);
+  cursor: pointer;
+}
+
+.calander-date-out-of-month{
+  color: hsl(0, 0%, 55%);
+}
+
+.calander-date-today{
+  background-color: hsl(202, 31%, 73%);
 }

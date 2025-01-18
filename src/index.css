@@ -1,0 +1,92 @@
+*{box-sizing: border-box;}
+
+:root{
+  --hover-color: hsl(0, 0%, 91%);
+}
+
+html{
+  overflow: hidden;
+}
+
+/* Desktop */
+.desktop{
+  background-color: gray;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Footer */
+.footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: hsl(0, 0%, 83%);
+}
+
+.start{
+  font-size: 22px;
+  width: fit-content;
+  padding: 4px 5px;
+}
+
+.start:hover{
+  background-color: orchid;
+  background-color: var(--hover-color);
+  cursor: pointer;
+}
+
+.start:hover > .logo{
+  filter: hue-rotate(270deg) saturate(5) brightness(0.9);
+}
+.logo{
+  height: 32px;
+  padding: 0px 8px 0px 4px;
+}
+
+.search-bar .form-control{
+  box-shadow: none !important;
+  border-radius: 0;
+  margin: 0 !important;
+  height: 100%;
+  width: 100% !important;
+}
+
+.widgets{
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+footer .col-2{
+  padding: 0 !important;
+}
+
+.footer .col {
+  margin: none !important;
+  padding: 0 !important;
+}
+
+/* Widget */
+
+.widget-border{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.widget{
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0px 7px;
+}
+
+.widget-border:hover{
+  background-color: var(--hover-color);
+  cursor: pointer;
+  box-shadow: none;
+}

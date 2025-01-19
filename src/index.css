@@ -6,8 +6,12 @@
 }
 
 html{
-  overflow: hidden;
   user-select: none;
+  overflow: hidden;
+}
+
+body{
+  overflow: auto;
 }
 
 /* General */
@@ -20,7 +24,7 @@ html{
   background-color: gray;
   height: 100vh;
   width: 100%;
-  z-index: -99;
+  z-index: -1;
 }
 
 /* Footer */
@@ -39,14 +43,10 @@ html{
 }
 
 .start:hover{
-  background-color: orchid;
   background-color: var(--hover-color);
   cursor: pointer;
 }
 
-.start:hover > .logo{
-  filter: hue-rotate(270deg) saturate(5) brightness(0.9);
-}
 .logo{
   height: 32px;
   padding: 0px 8px 0px 4px;
@@ -105,10 +105,9 @@ footer .col-2{
   padding: 0px 7px;
 }
 
-.widget-border:hover{
+.widgets > .widget-border:hover{
   background-color: var(--hover-color);
   cursor: pointer;
-  box-shadow: none;
 }
 
 /* DateTime */
@@ -264,4 +263,85 @@ footer .col-2{
 
 .calander-date-today{
   background-color: hsl(202, 31%, 73%);
+}
+
+/* Desktop Grid : fixme delete*/
+
+.desktop-grid{
+  position: absolute;
+  border: 1px solid #000;
+  height: calc(100vh - 50px);
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.desktop-grid > .row{
+  display: flex;
+  text-align: center !important;
+  justify-content: center;
+}
+
+.desktop-grid > .row > .col{
+  border: 1px solid #000;
+  background-color: red;
+  height: 40px !important;
+  width: 40px !important;
+  padding: 36px;
+  display: flex;
+  text-align: center !important;
+  justify-content: center;
+}
+
+/* Application */
+.application{
+  width: fit-content;
+  /* border: 1px solid #000; */
+  width: 75px;
+  aspect-ratio: 1/1;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  /* change margin later fixme */
+  margin: 0px; 
+  border: 1px solid rgba(0,0,0,0);
+}
+
+.application:hover{
+  border: 1px solid rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.1);
+  cursor: pointer;
+}
+
+.application-box{
+  padding: 10px;
+}
+
+.application-app{
+  padding: 0;
+  margin: 0;
+}
+.application-name-box{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.application-name{
+  
+  font-size: 10px;
+  color: white;
+  text-shadow: 
+  0 0 2px rgba(0, 0, 0, 1.0),
+  0 0 1px rgba(0, 0, 0, 0.9),
+  0 0 1px rgba(0, 0, 0, 0.9);
 }

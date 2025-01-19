@@ -20,6 +20,7 @@ const DateTime =()=>{
 
     const DateTimeRef = useRef(null)
 
+    // update time every 1000 ms
     useEffect(()=>{
         const updateTime =()=>{
             const date = new Date()
@@ -30,6 +31,7 @@ const DateTime =()=>{
 
         const intervalId = setInterval(updateTime, 1000)
 
+        // update timeDisplay when clicked outside it
         const handleClickOutsideTimeDisplay=(e)=>{
             if(DateTimeRef.current && !DateTimeRef.current.contains(e.target)){
                 setTimeDisplay(false)
@@ -40,6 +42,7 @@ const DateTime =()=>{
 
         return ()=> {
             clearInterval(intervalId)
+            // cleans up event listener
             document.removeEventListener('click', handleClickOutsideTimeDisplay)
         }
 
@@ -48,8 +51,6 @@ const DateTime =()=>{
     const handleTimeDisplay =()=>{
         setTimeDisplay(true)
     }
-
-
 
     return(
         <>

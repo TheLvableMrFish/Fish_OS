@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
 
 import Widget from './Widget'
 import DateTime from './DateTime'

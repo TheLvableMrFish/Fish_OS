@@ -18,10 +18,12 @@ const Application =({name, img, col, row})=>{
                     left: col
                 }}
             >
-                <div className='application-box'>
-                    <Widget className='application-app' img={`${img}.png`} />
+                <div 
+                    className='application-box'
+                >
+                    <Widget className='application-app' img={`${img}`} />
                     <div className='application-name-box'>
-                        <dvi className='application-name'>{name}</dvi>
+                        <div className='application-name'>{name}</div>
                     </div>
                 </div>
             </div>

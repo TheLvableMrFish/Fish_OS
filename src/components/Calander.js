@@ -83,11 +83,11 @@ const Calander =()=>{
             </div>
             <div className='calander-week-day'>
 
-                <ui className='calander-week-day-list row'>
+                <ul className='calander-week-day-list row'>
                     {daysOfWeek.map((day) =>(
                         <li key={day} className='calander-week-day-item col'>{day}</li>
                     ))}
-                </ui>
+                </ul>
                 
                 {weeks.map((week, index)=>(
                     <ul key={index} className='calander-day-list row'>

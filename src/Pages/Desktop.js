@@ -1,43 +1,117 @@
 import React from 'react'
+import { useState } from 'react'
 
 import Footer from '../components/Footer'
 import DesktopGrid from '../components/DesktopGrid'
 import Application from '../components/Application'
+import Window from '../components/Window'
+
+// Apps
+import Calculator from '../Apps/Calculator'
 
 const Desktop =()=>{
+
+    const [applicationsOpen, setApplicationsOpen] = useState([
+        // {id: 5, title: 'Calculator', x: 100, y: 100, zIndex: 1, content: 'content', img: 'crab_color', width: 200, height: 265}
+    ])
+
+    const handleApplication=(appId, title, img, content, width, height)=>{
+
+        setApplicationsOpen((prevApps) =>{
+            let isAppOpen = prevApps.some((app) => app.id === appId)
+            if(isAppOpen){
+                console.log('Desktop part 2 a')
+                console.log(applicationsOpen)
+                return prevApps
+                // return prevApps.filter((app)=> app.id !== appId)
+            } else {
+
+                return [
+                    ...prevApps,
+                    {id: appId, title: title, x: 100, y: 100, zIndex: 1, content: content || "content 1", img: img, width: width || '300px', height: height || '300px'}
+                ]
+            }
+
+        })
+
+    }
+
+    // Function to update the window position in Desktop.js from Window.js
+    const updateWindowPosition=(id, newX, newY)=>{
+        setApplicationsOpen((prevApps)=>
+            prevApps.map((win) =>
+                win.id === id ? {...win, x: newX, y: newY} : win
+            )
+        )
+    }
+
+    // Function to close a window
+    const closeWindow = (id)=>{
+        setApplicationsOpen((prevApps)=>
+            prevApps.filter((win) => win.id !==id)
+        )
+    }
+
     return(
         <>
         <main className='container-fluid desktop'>
             <div className='row'>
-                <Application 
-                    name='My Computer'
-                    img='my_computer'
-                    row={0}
-                    col={0}
-                />
-                <Application 
-                    name='Folder'
-                    img='clam_color'
-                    row={2}
-                    col={0}
+            
+                <Window 
+                    windows_prop={applicationsOpen} 
+                    updateWindowPosition={updateWindowPosition}
+                    closeWindow={closeWindow}
                 />
 
-                <Application 
-                    name='Folder'
-                    img='clown_color'
-                    row={1}
-                    col={1}
-                />
+                <div onClick={()=> handleApplication(1, 'My Computer', 'my_computer')}>
+                    <Application 
+                        name='My Computer'
+                        img='my_computer'
+                        row={0}
+                        col={0}
+                    />
+                </div>
 
-                <Application 
-                    name='Recycle'
-                    img='recycle_color'
-                    row={1}
-                    col={0}
-                />
+                <div onClick={()=> handleApplication(2, 'Folder', 'clam_color')}>
+                    <Application 
+                        name='Folder'
+                        img='clam_color'
+                        row={2}
+                        col={0}
+                    />
+                </div>
+                
+                <div onClick={()=> handleApplication(3, 'Fish', 'clown_color')}>
+                    <Application 
+                        name='Fish'
+                        img='clown_color'
+                        row={1}
+                        col={1}
+                    />
+                </div>
+
+                <div onClick={()=> handleApplication(4, 'Recycle', 'recycle_color')}>
+                    <Application 
+                        name='Recycle'
+                        img='recycle_color'
+                        row={1}
+                        col={0}
+                    />
+                </div>
+
+                <div onClick={()=> handleApplication(5, 'Calculator', 'crab_color', <Calculator />, 200, 265)}>
+                    <Application 
+                        name='Calculator'
+                        img='crab_color'
+                        row={1}
+                        col={2}
+                    />
+                </div>
                 {/* <DesktopGrid /> */}
             </div>
-            <Footer />
+            <Footer  
+                windows_prop={applicationsOpen} 
+            />
         </main>
         </>
     )

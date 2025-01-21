@@ -1,9 +1,17 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 
 import Widget from './Widget'
 import DateTime from './DateTime'
 
-const Footer =()=>{
+const Footer =({windows_prop})=>{
+
+    const [windows, setWindows] = useState(windows_prop)
+
+    useEffect(()=>{
+        setWindows(windows_prop)
+    }, [windows_prop])
+
 
     return(
         <>
@@ -15,12 +23,12 @@ const Footer =()=>{
                 </div>
                 <div className='widgets col folder'>
 
-                    {/* Temp, will add a loop to create these on the fly */}
-                    <Widget img='clam_color.png' />
-                    <Widget img='clown_color.png' />
-                    <Widget img='sea_hourse_color.png' />
-                    <Widget img='crawfish_color.png' />
-                    <Widget img='whale_color.png' />
+                    {windows.map((win)=>(
+                        <Widget 
+                            key={win.id}
+                            img={win.img}
+                        />
+                    ))}
 
                     <DateTime />
                 </div>

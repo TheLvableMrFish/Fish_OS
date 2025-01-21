@@ -21,7 +21,7 @@ body{
 
 /* Desktop */
 .desktop{
-  background-color: gray;
+  background-color: green;
   height: 100vh;
   width: 100%;
   z-index: -1;
@@ -307,7 +307,6 @@ footer .col-2{
   align-items: center;
   justify-content: center;
   border: 1px solid #000;
-  /* change margin later fixme */
   margin: 0px; 
   border: 1px solid rgba(0,0,0,0);
 }
@@ -344,4 +343,56 @@ footer .col-2{
   0 0 2px rgba(0, 0, 0, 1.0),
   0 0 1px rgba(0, 0, 0, 0.9),
   0 0 1px rgba(0, 0, 0, 0.9);
+}
+
+/* Window */
+
+.window-box{
+  position: absolute;
+  border: 2px solid #808080;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding: 0;
+}
+
+.window-header{
+  padding: 3px 7px;
+  width: 100%;
+  background: linear-gradient(to right, #0040ff, #4169e1);
+  color: white;
+  cursor: move;
+  display: flex;
+  align-items: center;
+  font-size: 12;
+}
+
+.window-logo{
+  width: 18px;
+  padding: 1px;
+  margin-right: 4px;
+}
+
+.window-widgets-container{
+  margin-left: auto;
+  display: flex;
+}
+
+.window-widget{
+  display: flex;
+  width: 18px;
+  aspect-ratio: 1/1;
+  background-color: #a0a0a0;
+  border: 1px solid #000;
+  padding: 2px;
+  margin: 0px 3px 0px 0px;
+  color: black;
+  cursor: pointer;
+}
+
+.window-widget:hover{
+  background-color: #c0c0c0;
+}
+
+.window-content{
+  padding: 10px;
 }

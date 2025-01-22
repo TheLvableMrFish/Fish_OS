@@ -8,11 +8,13 @@ import Window from '../components/Window'
 
 // Apps
 import Calculator from '../Apps/Calculator'
+import Background from '../Apps/Background'
 
 const Desktop =()=>{
 
     const [applicationsOpen, setApplicationsOpen] = useState([
-        // {id: 5, title: 'Calculator', x: 100, y: 100, zIndex: 1, content: 'content', img: 'crab_color', width: 200, height: 265}
+        // 5, 'Background', 'star_fish', <Background />, 500, 400
+        {id: 6, title: 'Background', x: 500, y: 100, zIndex: 1, content: <Background />, img: 'star_fish', width: 500, height: 400}
     ])
 
     const handleApplication=(appId, title, img, content, width, height)=>{
@@ -105,6 +107,15 @@ const Desktop =()=>{
                         img='crab_color'
                         row={1}
                         col={2}
+                    />
+                </div>
+
+                <div onClick={()=> handleApplication(6, 'Background', 'star_fish', <Background />, 500, 400)}>
+                    <Application 
+                        name='Background'
+                        img='star_fish'
+                        row={0}
+                        col={1}
                     />
                 </div>
                 {/* <DesktopGrid /> */}

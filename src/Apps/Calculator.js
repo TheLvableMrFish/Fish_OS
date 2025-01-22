@@ -70,7 +70,7 @@ const Calculator =({})=>{
         <>
         <div className='calculator-box container-fluid'>
             <div className='row'>
-                <div className='display col-12'>
+                <div className='calculator-display col-12'>
                     <div  className='calc'>{calc}</div>
                 </div>
                 <div className='buttons row'>

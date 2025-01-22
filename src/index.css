@@ -3,6 +3,8 @@
 :root{
   --hover-color: hsl(0, 0%, 91%);
   --open-color: hsl(0, 0%, 89%);
+  --main-bg-color: green;
+  --bg-img: 'temp';
 }
 
 html{
@@ -21,7 +23,11 @@ body{
 
 /* Desktop */
 .desktop{
-  background-color: green;
+  background-color: var(--main-bg-color);
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
   z-index: -1;
@@ -144,7 +150,7 @@ footer .col-2{
 .date-time-info-line-top{
   width: 100%;
   background-color: rgba(0,0,0,0.3);
-  height: 1px;
+  height: 0.5px;
   position: absolute;
   bottom: 0px;
 }
@@ -152,7 +158,7 @@ footer .col-2{
 .date-time-info-line-bottom{
   width: 100%;
   background-color: rgba(0,0,0,0.3);
-  height: 1px;
+  height: 0.5px;
   position: absolute;
   bottom: -250px;
 }

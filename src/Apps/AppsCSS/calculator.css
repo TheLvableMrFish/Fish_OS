@@ -16,12 +16,11 @@
     
 }
 
-.display{
+.calculator-display{
     padding: 3px 0 3px 0;
     border: 2px solid lightgray;
     background-color: white;
     height: 33px;
-    
 }
 
 .calc{

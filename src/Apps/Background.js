@@ -68,7 +68,7 @@ const Background =({})=>{
                             {backgroundImgs.map((img)=>(
                                 <img 
                                     className={`col-3 background-background-img`} 
-                                    src={`./backgrounds/${img}.jpg`}
+                                    src={`/backgrounds/${img}.jpg`}
                                     onClick={()=>handleBackgroundImgChange(img)}
                                     loading='lazy'
                                 />

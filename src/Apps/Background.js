@@ -18,6 +18,8 @@ const Background =({})=>{
         setBackground(img)
         document.documentElement.style.setProperty('--main-bg-color', `none`)
         document.documentElement.style.setProperty('--bg-img', `url("./backgrounds/${img}.jpg")`)
+        document.documentElement.style.setProperty('--bg-img', `url("../../backgrounds/${img}.jpg")`)
+        console.log(document.documentElement.style.getPropertyValue('--gb-img'))
     }
 
     const handleTextChange=(text)=>{
@@ -67,6 +69,7 @@ const Background =({})=>{
                         <div className='row'>
                             {backgroundImgs.map((img)=>(
                                 <img 
+                                    key={img}
                                     className={`col-3 background-background-img`} 
                                     src={`./backgrounds/${img}.jpg`}
                                     onClick={()=>handleBackgroundImgChange(img)}

@@ -17,7 +17,7 @@ const Background =({})=>{
     const handleBackgroundImgChange=(img)=>{
         setBackground(img)
         document.documentElement.style.setProperty('--main-bg-color', `none`)
-        document.documentElement.style.setProperty('--bg-img', `url("/backgrounds/${img}.jpg")`)
+        document.documentElement.style.setProperty('--bg-img', `url("./backgrounds/${img}.jpg")`)
     }
 
     const handleTextChange=(text)=>{

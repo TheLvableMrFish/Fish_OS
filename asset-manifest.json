@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Fish_OS/static/css/main.66b3b77f.css",
-    "main.js": "/Fish_OS/static/js/main.f086034e.js",
+    "main.js": "/Fish_OS/static/js/main.6d62aecf.js",
     "index.html": "/Fish_OS/index.html",
     "main.66b3b77f.css.map": "/Fish_OS/static/css/main.66b3b77f.css.map",
-    "main.f086034e.js.map": "/Fish_OS/static/js/main.f086034e.js.map"
+    "main.6d62aecf.js.map": "/Fish_OS/static/js/main.6d62aecf.js.map"
   },
   "entrypoints": [
     "static/css/main.66b3b77f.css",
-    "static/js/main.f086034e.js"
+    "static/js/main.6d62aecf.js"
   ]
 }

@@ -14,7 +14,7 @@ const Desktop =()=>{
 
     const [applicationsOpen, setApplicationsOpen] = useState([
         // 5, 'Background', 'star_fish', <Background />, 500, 400
-        {id: 6, title: 'Background', x: 500, y: 100, zIndex: 1, content: <Background />, img: 'star_fish', width: 500, height: 400}
+        // {id: 6, title: 'Background', x: 500, y: 100, zIndex: 1, content: <Background />, img: 'star_fish', width: 500, height: 400}
     ])
 
     const handleApplication=(appId, title, img, content, width, height)=>{

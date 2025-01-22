@@ -5,8 +5,8 @@ import Widget from './Widget'
 const Application =({name, img, col, row})=>{
 
     // Row and column start at 0
-    col = col * 75
-    row = row * 73.5
+    col = col * 90
+    row = row * 90
 
     return(
         <> 

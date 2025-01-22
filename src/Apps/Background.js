@@ -26,9 +26,9 @@ const Background =({})=>{
 
     let colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'black', 'brown', 'white', 'pink', 'gray', 'violet']
     let backgroundImgs = [ 
-        'background1', 'background2', 'background3', 
+        'background10', 'background2', 'background3', 
         'background4', 'background5', 'background6', 
-        'background7', 'background8'
+        'background9', 'background8'
     ]
 
     return(

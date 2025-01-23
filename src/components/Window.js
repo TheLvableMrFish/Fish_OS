@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 // fix me 
-const Window =({windows_prop, updateWindowPosition, closeWindow})=>{
+const Window =({windows_prop, updateWindowPosition, closeWindow, minWindow})=>{
 
     const [windows, setWindows] = useState(windows_prop)
 
@@ -78,7 +78,9 @@ const Window =({windows_prop, updateWindowPosition, closeWindow})=>{
 
     return(
         <>
-            {windows.map((win)=>(
+            {windows
+                .filter((win) => win.windowState !== 'minimized')
+                .map((win)=>(
                 <div
                     key={win.id}
                     className='window-box'
@@ -116,7 +118,7 @@ const Window =({windows_prop, updateWindowPosition, closeWindow})=>{
                         <div className='window-widgets-container'>
                             <div 
                                 className='window-close-btn window-widget'
-                                // onClick={()=> setWindows((prev)=>prev.filter((win) => win.id !== win.id))}
+                                onClick={()=> minWindow(win.id)}
                             ><img className='window-widget-img' src='./media/minimize2.png'/></div>
                             <div 
                                 className='window-close-btn window-widget'

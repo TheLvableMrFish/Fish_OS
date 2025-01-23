@@ -18,6 +18,7 @@ const Desktop =()=>{
     ])
 
     const handleApplication=(appId, title, img, content, width, height)=>{
+        reOpenWindow(appId)
 
         setApplicationsOpen((prevApps) =>{
             let isAppOpen = prevApps.some((app) => app.id === appId)
@@ -30,7 +31,17 @@ const Desktop =()=>{
 
                 return [
                     ...prevApps,
-                    {id: appId, title: title, x: 100, y: 100, zIndex: 1, content: content || "content 1", img: img, width: width || '300px', height: height || '300px'}
+                    {
+                        id: appId, 
+                        title: title, 
+                        x: 100, y: 100, 
+                        zIndex: 1, 
+                        content: content || "content 1", 
+                        img: img, 
+                        width: width || '300px', 
+                        height: height || '300px', 
+                        windowState: 'open', 
+                    }
                 ]
             }
 
@@ -54,6 +65,20 @@ const Desktop =()=>{
         )
     }
 
+    const minWindow = (id)=>{
+        setApplicationsOpen((prevApps)=>
+            prevApps.map((win) =>
+                win.id === id ? {...win, windowState: 'minimized'} : win
+        ))
+    }
+
+    const reOpenWindow = (id)=>{
+        setApplicationsOpen((prevApps)=>
+            prevApps.map((win) =>
+                win.id === id ? {...win, windowState: 'open'} : win
+        ))
+    }
+
     return(
         <>
         <main className='container-fluid desktop'>
@@ -63,6 +88,7 @@ const Desktop =()=>{
                     windows_prop={applicationsOpen} 
                     updateWindowPosition={updateWindowPosition}
                     closeWindow={closeWindow}
+                    minWindow={minWindow}
                 />
 
                 <div onClick={()=> handleApplication(1, 'My Computer', 'my_computer')}>
@@ -122,6 +148,7 @@ const Desktop =()=>{
             </div>
             <Footer  
                 windows_prop={applicationsOpen} 
+                reOpenWindow={reOpenWindow}
             />
         </main>
         </>

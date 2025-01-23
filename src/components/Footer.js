@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Widget from './Widget'
 import DateTime from './DateTime'
 
-const Footer =({windows_prop})=>{
+const Footer =({windows_prop, reOpenWindow})=>{
 
     const [windows, setWindows] = useState(windows_prop)
 
@@ -27,6 +27,7 @@ const Footer =({windows_prop})=>{
                         <Widget 
                             key={win.id}
                             img={win.img}
+                            reOpenWindow={()=> reOpenWindow(win.id)}
                         />
                     ))}
 

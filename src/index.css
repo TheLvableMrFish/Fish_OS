@@ -360,6 +360,7 @@ footer .col-2{
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   margin: 0;
   padding: 0;
+  border-radius: 6px;
 }
 
 .window-header{
@@ -371,6 +372,7 @@ footer .col-2{
   display: flex;
   align-items: center;
   font-size: 12;
+  border-radius: 4px 4px 0 0;
 }
 
 .window-logo{

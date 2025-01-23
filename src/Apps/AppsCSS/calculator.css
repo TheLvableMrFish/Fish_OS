@@ -6,7 +6,7 @@
     height: calc(100% - 30px);
     cursor: pointer;
     background: lightgray;
-
+    border-radius: 0 0 4px 4px;
 }
 .calculator-box .row{
     display: flex;
@@ -21,6 +21,7 @@
     border: 2px solid lightgray;
     background-color: white;
     height: 33px;
+    border-radius: 3px;
 }
 
 .calc{
@@ -41,6 +42,7 @@
     box-shadow: 
     0 1px 1px rgba(0,0,0,0.1),
     0 1px 1px rgba(0,0,0,0.4);
+    border-radius: 4px;
 }
 
 .button:hover{

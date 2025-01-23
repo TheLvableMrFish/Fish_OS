@@ -71,7 +71,7 @@ const Background =({})=>{
                                 <img 
                                     key={img}
                                     className={`col-3 background-background-img`} 
-                                    src={`./backgrounds/${img}.jpg`}
+                                    src={`./backgrounds_low_quality/${img}.jpg`}
                                     onClick={()=>handleBackgroundImgChange(img)}
                                     loading='lazy'
                                 />

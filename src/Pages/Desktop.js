@@ -10,6 +10,9 @@ import Window from '../components/Window'
 import Calculator from '../Apps/Calculator'
 import Background from '../Apps/Background'
 
+// Data
+import { application_data } from '../Data/applications_data'
+
 const Desktop =()=>{
 
     const [applicationsOpen, setApplicationsOpen] = useState([
@@ -91,7 +94,26 @@ const Desktop =()=>{
                     minWindow={minWindow}
                 />
 
-                <div onClick={()=> handleApplication(1, 'My Computer', 'my_computer')}>
+                {application_data.map((app)=>(
+                    <div onClick={()=> handleApplication(
+                        app.id, 
+                        app.title, 
+                        app.img, 
+                        app.app ? app.app : null,
+                        app.width ? app.width: null,
+                        app.height ? app.height: null,
+                        )}>
+
+                        <Application 
+                            name={app.title}
+                            img={app.img}
+                            row={app.row}
+                            col={app.col}
+                        />
+                    </div>
+                ))}
+
+                {/* <div onClick={()=> handleApplication(1, 'My Computer', 'my_computer')}>
                     <Application 
                         name='My Computer'
                         img='my_computer'
@@ -143,7 +165,7 @@ const Desktop =()=>{
                         row={0}
                         col={1}
                     />
-                </div>
+                </div> */}
                 {/* <DesktopGrid /> */}
             </div>
             <Footer  

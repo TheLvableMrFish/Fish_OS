@@ -1,5 +1,7 @@
 import Calculator from "../Apps/Calculator"
 import Background from "../Apps/Background"
+import Paint from "../Apps/Paint"
+import Folder from "../Apps/Folder"
 
 export const application_data = [
     {
@@ -14,7 +16,11 @@ export const application_data = [
         title: 'Folder',
         img: 'clam_color',
         row: 2,
-        col: 0
+        col: 0,
+        app: <Folder />,
+        width: 550,
+        height: 350
+
     },
     {
         id: 3,
@@ -49,5 +55,15 @@ export const application_data = [
         app: <Background />,
         width: 500,
         height: 400
+    },
+    {
+        id: 7,
+        title: 'Paint',
+        img: 'squid_color',
+        row: 2,
+        col: 1,
+        app: <Paint />,
+        width: 650,
+        height: 500
     }
 ]

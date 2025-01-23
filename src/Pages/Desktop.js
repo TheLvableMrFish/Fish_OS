@@ -6,9 +6,9 @@ import DesktopGrid from '../components/DesktopGrid'
 import Application from '../components/Application'
 import Window from '../components/Window'
 
-// Apps
-import Calculator from '../Apps/Calculator'
-import Background from '../Apps/Background'
+// App
+// import Paint from '../Apps/Paint'
+import Folder from '../Apps/Folder'
 
 // Data
 import { application_data } from '../Data/applications_data'
@@ -17,7 +17,7 @@ const Desktop =()=>{
 
     const [applicationsOpen, setApplicationsOpen] = useState([
         // 5, 'Background', 'star_fish', <Background />, 500, 400
-        // {id: 6, title: 'Background', x: 500, y: 100, zIndex: 1, content: <Background />, img: 'star_fish', width: 500, height: 400}
+        {id: 2, title: 'Folder', x: 500, y: 100, zIndex: 1, content: <Folder />, img: 'clam_color', width: 550, height: 350}
     ])
 
     const handleApplication=(appId, title, img, content, width, height)=>{
@@ -113,59 +113,6 @@ const Desktop =()=>{
                     </div>
                 ))}
 
-                {/* <div onClick={()=> handleApplication(1, 'My Computer', 'my_computer')}>
-                    <Application 
-                        name='My Computer'
-                        img='my_computer'
-                        row={0}
-                        col={0}
-                    />
-                </div>
-
-                <div onClick={()=> handleApplication(2, 'Folder', 'clam_color')}>
-                    <Application 
-                        name='Folder'
-                        img='clam_color'
-                        row={2}
-                        col={0}
-                    />
-                </div>
-                
-                <div onClick={()=> handleApplication(3, 'Fish', 'clown_color')}>
-                    <Application 
-                        name='Fish'
-                        img='clown_color'
-                        row={1}
-                        col={1}
-                    />
-                </div>
-
-                <div onClick={()=> handleApplication(4, 'Recycle', 'recycle_color')}>
-                    <Application 
-                        name='Recycle'
-                        img='recycle_color'
-                        row={1}
-                        col={0}
-                    />
-                </div>
-
-                <div onClick={()=> handleApplication(5, 'Calculator', 'crab_color', <Calculator />, 200, 265)}>
-                    <Application 
-                        name='Calculator'
-                        img='crab_color'
-                        row={1}
-                        col={2}
-                    />
-                </div>
-
-                <div onClick={()=> handleApplication(6, 'Background', 'star_fish', <Background />, 500, 400)}>
-                    <Application 
-                        name='Background'
-                        img='star_fish'
-                        row={0}
-                        col={1}
-                    />
-                </div> */}
                 {/* <DesktopGrid /> */}
             </div>
             <Footer  

@@ -1,0 +1,27 @@
+.paint-box{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 30px);
+    background: lightgray;
+    border-radius: 0 0 4px 4px;
+}
+
+.paint-container{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
+    background: white;
+    border-radius: 4px 4px 4px 4px;
+}
+
+.paint-canvas{
+    width: calc(100% + 25px);
+    height: 100%;
+    border: 1px solid #000;
+    border-radius: 4px 4px 4px 4px;
+    cursor: crosshair;
+}

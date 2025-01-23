@@ -5,6 +5,7 @@
     width: 100%;
     height: calc(100% - 30px);
     background-color: white;
+    border-radius: 0 0 4px 4px;
 }
 
 .background-header{

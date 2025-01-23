@@ -61,11 +61,6 @@ const Window =({windows_prop, updateWindowPosition, closeWindow, minWindow})=>{
         // update window position in Desktop using updateWindowPosition()
         updateWindowPosition(id, initialX + dx, initialY + dy)
 
-        // setWindows((prev)=>
-        //     prev.map((win)=>
-        //         win.id === id ? {...win, x:initialX + dx, y:initialY + dy} : win
-        //     )
-        // )
     }
 
     const handleDragEnd=()=>{
@@ -79,11 +74,10 @@ const Window =({windows_prop, updateWindowPosition, closeWindow, minWindow})=>{
     return(
         <>
             {windows
-                .filter((win) => win.windowState !== 'minimized')
                 .map((win)=>(
                 <div
                     key={win.id}
-                    className='window-box'
+                    className={`window-box ${win.windowState === 'minimized' ? 'hidden' : ''}`}
                     style={{
                         left: win.x,
                         top: win.y,
@@ -94,7 +88,7 @@ const Window =({windows_prop, updateWindowPosition, closeWindow, minWindow})=>{
                     onMouseDown={()=> bringToFront(win.id)}
                 >
                     <div
-                        className='window-header container-fluid'
+                        className={`window-header container-fluid `}
                         onMouseDown={(e) =>{
                             handleDragStart(win.id, e.clientX, e.clientY)
 
@@ -120,10 +114,10 @@ const Window =({windows_prop, updateWindowPosition, closeWindow, minWindow})=>{
                                 className='window-close-btn window-widget'
                                 onClick={()=> minWindow(win.id)}
                             ><img className='window-widget-img' src='./media/minimize2.png'/></div>
-                            <div 
+                            {/* <div 
                                 className='window-close-btn window-widget'
                                 // onClick={()=> setWindows((prev)=>prev.filter((win) => win.id !== win.id))}
-                            ><img className='window-widget-img' src='./media/full_screen2.png'/></div>
+                            ><img className='window-widget-img' src='./media/full_screen2.png'/></div> */}
                             <div 
                                 className='window-close-btn window-widget'
                                 onClick={()=> closeWindow(win.id)}

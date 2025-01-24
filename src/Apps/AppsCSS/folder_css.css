@@ -1,0 +1,85 @@
+.folder-box{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 30px);
+    background: lightgray;
+    border-radius: 0 0 4px 4px;
+}
+
+.folder-seperator{
+    border-bottom: 1px solid black;
+    width: 98%;
+    margin-left: 1%;
+}
+
+.folder-v-seperator{
+    height: 280px;
+    width: 1px;
+    border-right: 1px solid black;
+    position: absolute;
+    left: 120px;
+    top: 24px;
+}
+
+.folder-list{
+    height: 280px;
+    align-items: center;
+}
+
+.folder-item{
+    padding: 3px 3px 3px 8px;
+    margin-left: -12px;
+    width: 120px;
+}
+
+.folder-item:hover{
+    cursor: pointer;
+    background-color: var(--hover-color);
+}
+
+.folder-img{
+    height: 14px;
+    margin-bottom: 5px;
+}
+
+.folder-app-container{
+    padding: 0;
+    margin-left: -3px;
+}
+
+.folder-app-img{
+    height: 22px;
+    margin-bottom: 5px;
+}
+
+.folder-app{
+    width: 212px;
+    font-size: 18px;
+}
+
+.folder-app:hover{
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+
+.folder-app-space{
+    margin-left: 5px;
+}
+
+.folder-storage-bar{
+    width: 95%;
+    height: 13px;
+    padding: 1px;
+    background-color: gray;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.folder-storage-bar-fill{
+    border-radius: 2px;
+    background-color: orchid;
+    height: 10px;
+}

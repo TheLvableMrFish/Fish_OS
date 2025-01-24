@@ -16,8 +16,15 @@ import { application_data } from '../Data/applications_data'
 const Desktop =()=>{
 
     const [applicationsOpen, setApplicationsOpen] = useState([
-        // 5, 'Background', 'star_fish', <Background />, 500, 400
-        {id: 2, title: 'Folder', x: 500, y: 100, zIndex: 1, content: <Folder />, img: 'clam_color', width: 550, height: 350}
+        // {   
+        //     id: 2, 
+        //     title: 'Folder', 
+        //     x: 500, y: 100, 
+        //     zIndex: 1, 
+        //     content: <Folder />, 
+        //     img: 'clam_color', 
+        //     width: 550, height: 350, 
+        // }
     ])
 
     const handleApplication=(appId, title, img, content, width, height)=>{
@@ -29,7 +36,6 @@ const Desktop =()=>{
                 console.log('Desktop part 2 a')
                 console.log(applicationsOpen)
                 return prevApps
-                // return prevApps.filter((app)=> app.id !== appId)
             } else {
 
                 return [
@@ -43,7 +49,7 @@ const Desktop =()=>{
                         img: img, 
                         width: width || '300px', 
                         height: height || '300px', 
-                        windowState: 'open', 
+                        windowState: 'open',
                     }
                 ]
             }

@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-// fix me 
+
 const Window =({windows_prop, updateWindowPosition, closeWindow, minWindow})=>{
 
     const [windows, setWindows] = useState(windows_prop)

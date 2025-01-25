@@ -9,6 +9,7 @@ import Window from '../components/Window'
 // App
 // import Paint from '../Apps/Paint'
 import Folder from '../Apps/Folder'
+import Notes from '../Apps/Notes'
 
 // Data
 import { application_data } from '../Data/applications_data'
@@ -25,6 +26,17 @@ const Desktop =()=>{
         //     img: 'clam_color', 
         //     width: 550, height: 350, 
         // }
+
+        {
+            id: 8,
+            title: 'Notes',
+            x: 500, y: 100,
+            zIndex: 1,
+            content: <Notes />,
+            img: 'manta_ray',
+            width: 400,
+            height: 500
+        }
     ])
 
     const handleApplication=(appId, title, img, content, width, height)=>{

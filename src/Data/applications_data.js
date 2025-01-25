@@ -2,6 +2,7 @@ import Calculator from "../Apps/Calculator"
 import Background from "../Apps/Background"
 import Paint from "../Apps/Paint"
 import Folder from "../Apps/Folder"
+import Notes from "../Apps/Notes"
 
 export const application_data = [
     {
@@ -64,6 +65,16 @@ export const application_data = [
         col: 1,
         app: <Paint />,
         width: 650,
+        height: 500
+    },
+    {
+        id: 8,
+        title: 'Notes',
+        img: 'manta_ray',
+        row: 3,
+        col: 0,
+        app: <Notes />,
+        width: 400,
         height: 500
     }
 ]

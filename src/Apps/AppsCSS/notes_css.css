@@ -1,0 +1,58 @@
+.notes-box{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 30px);
+    background: lightgray;
+    border-radius: 0 0 4px 4px;
+}
+
+.notes-text-label{
+    margin-top: 10px;
+    font-size: 19px;
+    margin-bottom: 1px;
+}
+
+.notes-text-label:hover{
+    cursor: pointer;
+}
+
+.notes-text-label-edit{
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.notes-text-label-edit:focus{
+    outline: none;
+}
+
+.notes-text-label-edit-btn{
+    margin-top: 10px;
+    width: fit-content !important;
+    padding: 0 !important;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.notes-text-label-edit-btn:hover{
+    background-color: rgb(179, 153, 153);
+    color: white;
+    cursor: pointer;
+}
+
+.notes-text-edit-container{
+    width: 60%;
+    margin-left: 0px;
+}
+
+.notes-text-box{
+    width: 100%;
+    margin-top: 10px;
+    padding-bottom: 101%;
+}
+
+.notes-text-box:focus{
+    outline: none;
+}

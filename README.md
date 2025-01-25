@@ -1,5 +1,8 @@
 # Getting Started with Create React App
 
+# Note !!
+Edit package.json before running locally. Delete " "homepage": "https://TheLvableMrFish.github.io/Fish_OS", "
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

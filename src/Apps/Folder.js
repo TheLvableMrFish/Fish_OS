@@ -64,7 +64,7 @@ const Folder =({})=>{
         calculateStorageUsage()
 
         // Set interval to call function every second
-        const intervalId = setInterval(calculateStorageUsage, 1000)
+        const intervalId = setInterval(calculateStorageUsage, 500)
 
         // CLeanup the interval
         return ()=>{

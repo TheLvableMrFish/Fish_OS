@@ -56,5 +56,14 @@ export const app_data_mini = [
         col: 1,
         width: 650,
         height: 500
+    },
+    {
+        id: 8,
+        title: 'Notes',
+        img: 'manta_ray',
+        row: 3,
+        col: 0,
+        width: 400,
+        height: 500
     }
 ]

@@ -12,8 +12,21 @@ const Folder =({})=>{
         remainingStorage: 0,
         usedPercentage: 0
     })
+    const [notes, setNotes] = useState('')
 
     let folders = ['Desktop', 'Downloads', 'Documents', 'Pictures', 'This PC']
+
+    
+
+        // const noteIndex = existingNotes.findIndex((n)=> n.title === title)
+
+        // if (noteIndex !== -1){
+        //     existingNotes[noteIndex].note = note
+        // } else {
+        //     existingNotes.push({title, note})
+        // }
+
+
 
     const maxStorage = 5 * 1024 * 1024 
 
@@ -53,6 +66,23 @@ const Folder =({})=>{
 
     const handleClick =(folderName)=>{
         setFolderPath(folderName)
+        if(folderName === 'Documents'){
+            const existingNotes = JSON.parse(localStorage.getItem('notes')) || []
+            setNotes(existingNotes)
+        }
+    }
+    
+    const handleDelte =(title)=>{
+        const existingNotes = JSON.parse(localStorage.getItem('notes'))
+
+        // Create list of the notes without the one that has the current title
+        const updateNotes = existingNotes.filter((note) => note.title !== title)
+
+        // Update local storage 
+        localStorage.setItem('notes', JSON.stringify(updateNotes))
+
+        setNotes(updateNotes)
+        calculateStorageUsage()
     }
 
     return(
@@ -66,9 +96,10 @@ const Folder =({})=>{
                 <div className='folder-list col-3'>
 
                     {folders.map((folder)=>(
-                        <div className='folder-item' onClick={()=>handleClick(folder)}>
+                        <div key={folder} className='folder-item' onClick={()=>handleClick(folder)}>
                             <img className='folder-img' src='./media/clam_color.png'/> {folder}
                         </div>
+                        
                     ))}
 
                     <div className='folder-v-seperator col-1'>
@@ -104,6 +135,24 @@ const Folder =({})=>{
                                 </div>
                             </div>
                         : ''}
+
+                        <div className='folder-scrollable-container'>
+                        {folderPath === 'Documents' ?
+                            notes.map((note)=>(
+                                    <div className='folder-app-documents row'>
+                                        <div key={note.title} className='folder-app-document col-10'>{note.title}.txt
+                                            <img 
+                                                src='./media/delete.png' 
+                                                className='folder-document-delte'
+                                                onClick={()=> handleDelte(note.title)}
+                                            />
+                                        </div>
+                                    </div>
+                                
+                            )) 
+                            : ''
+                        } 
+                        </div>
                     </div>
                 </div>
 

@@ -35,9 +35,11 @@ const Desktop =()=>{
             content: <Notes />,
             img: 'manta_ray',
             width: 400,
-            height: 500
+            height: 500,
+            key: 1
         }
     ])
+
 
     const handleApplication=(appId, title, img, content, width, height)=>{
         reOpenWindow(appId)
@@ -45,8 +47,6 @@ const Desktop =()=>{
         setApplicationsOpen((prevApps) =>{
             let isAppOpen = prevApps.some((app) => app.id === appId)
             if(isAppOpen){
-                console.log('Desktop part 2 a')
-                console.log(applicationsOpen)
                 return prevApps
             } else {
 
@@ -62,7 +62,7 @@ const Desktop =()=>{
                         width: width || '300px', 
                         height: height || '300px', 
                         windowState: 'open',
-                    }
+                    },
                 ]
             }
 
@@ -120,7 +120,9 @@ const Desktop =()=>{
                         app.app ? app.app : null,
                         app.width ? app.width: null,
                         app.height ? app.height: null,
-                        )}>
+                        )}
+                        key={app.id}
+                        >
 
                         <Application 
                             name={app.title}

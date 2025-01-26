@@ -75,6 +75,6 @@ export const application_data = [
         col: 0,
         app: <Notes />,
         width: 400,
-        height: 500
+        height: 500,
     }
 ]

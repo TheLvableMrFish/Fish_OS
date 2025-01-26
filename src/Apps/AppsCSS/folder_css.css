@@ -83,3 +83,57 @@
     background-color: orchid;
     height: 10px;
 }
+
+.folder-app-documents{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.folder-app-document{
+    font-size: 18px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.folder-app-document:hover{
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+
+.folder-document-delte{
+    margin-top: 4px;
+    height: 18px;
+}
+
+.folder-scrollable-container{
+    width: 424px;
+    max-height: 291px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 0 0 0 4px;
+}
+
+.folder-scrollable-container::-webkit-scrollbar-track,
+.folder-scrollable-container::-webkit-scrollbar-thumb,
+.folder-scrollable-container::-webkit-scrollbar-corner
+{
+    border-radius: 0 0 0 4px;
+}
+
+.folder-scrollable-container::-webkit-scrollbar{
+    width: 8px;
+}
+
+.folder-scrollable-container::-webkit-scrollbar-thumb{
+    background: #a8a8a8;
+    border-radius: 0 0 2px 0;
+}
+
+.folder-scrollable-container::-webkit-scrollbar-thumb:hover{
+    background: #a0a0a0;
+}
+
+.folder-scrollable-container::-webkit-scrollbar-track{
+    background: #f1f1f1;
+    border-radius: 0 0 4px 0;
+}

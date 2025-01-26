@@ -12,15 +12,38 @@
     margin-top: 10px;
     font-size: 19px;
     margin-bottom: 1px;
+    margin-right: 19px;
+    margin-left: -8px;
+
 }
 
 .notes-text-label:hover{
     cursor: pointer;
 }
 
+.notes-text-open-btn,
+.notes-text-save-btn{
+    margin-top: 10px;
+    padding: 0 !important;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.notes-text-open-btn{
+    margin-right: 5px;
+}
+
+.notes-text-open-btn:hover,
+.notes-text-save-btn:hover{
+    background-color: rgb(179, 153, 153);
+    color: white;
+    cursor: pointer;
+}
+
 .notes-text-label-edit{
     margin-top: 10px;
-    margin-right: 5px;
+    margin-right: 8px;
 }
 
 .notes-text-label-edit:focus{
@@ -29,7 +52,6 @@
 
 .notes-text-label-edit-btn{
     margin-top: 10px;
-    width: fit-content !important;
     padding: 0 !important;
     text-align: center;
     border: 1px solid #000;
@@ -43,16 +65,96 @@
 }
 
 .notes-text-edit-container{
-    width: 60%;
+    width: 100%;
     margin-left: 0px;
 }
 
 .notes-text-box{
     width: 100%;
     margin-top: 10px;
-    padding-bottom: 101%;
+    height: 400px;
+    resize: none;
+    overflow: auto;
 }
 
 .notes-text-box:focus{
     outline: none;
+}
+
+.notes-open-header{
+    cursor: default;
+}
+
+.notes-open-list{
+    background: lightgray;
+    position: absolute;
+    border: 2px solid #808080;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    padding: 0;
+    border-radius: 6px;
+    top: -25px;
+    left: 0;
+}
+
+.notes-open-item{
+    padding: 10px 10px 10px 8px;
+    margin-left: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.notes-open-item:hover{
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+
+.notes-open-item-text{
+    padding: 10px;
+    margin-left: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.notes-open-item-text-border-radius-edit{
+    border-radius: 0px 0px 0px 4px;
+}
+
+.notes-open-empty{
+    padding: 0 0 0 25px;
+    margin: 10px;
+}
+
+.notes-scrollable-container{
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 0 0 0 4px;
+}
+
+.notes-scrollable-container::-webkit-scrollbar-track,
+.notes-scrollable-container::-webkit-scrollbar-thumb,
+.notes-scrollable-container::-webkit-scrollbar-corner
+{
+    border-radius: 0 0 0 4px;
+}
+
+.notes-scrollable-container::-webkit-scrollbar{
+    width: 8px;
+}
+
+.notes-scrollable-container::-webkit-scrollbar-thumb{
+    background: #a8a8a8;
+    border-radius: 0 0 2px 0;
+}
+
+.notes-scrollable-container::-webkit-scrollbar-thumb:hover{
+    background: #a0a0a0;
+}
+
+.notes-scrollable-container::-webkit-scrollbar-track{
+    background: #f1f1f1;
+    border-radius: 0 0 4px 0;
 }

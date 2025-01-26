@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Widget =({key, img, reOpenWindow})=>{
+const Widget =({ img, reOpenWindow})=>{
     return(
         <>
         <div className='widget-border'

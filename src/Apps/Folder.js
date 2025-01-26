@@ -62,6 +62,14 @@ const Folder =({})=>{
     useEffect(()=>{
         // call the function to calculate storage usesage when component loads
         calculateStorageUsage()
+
+        // Set interval to call function every second
+        const intervalId = setInterval(calculateStorageUsage, 1000)
+
+        // CLeanup the interval
+        return ()=>{
+            clearInterval(intervalId)
+        }
     }, [])
 
     const handleClick =(folderName)=>{
@@ -69,6 +77,7 @@ const Folder =({})=>{
         if(folderName === 'Documents'){
             const existingNotes = JSON.parse(localStorage.getItem('notes')) || []
             setNotes(existingNotes)
+            calculateStorageUsage()
         }
     }
     

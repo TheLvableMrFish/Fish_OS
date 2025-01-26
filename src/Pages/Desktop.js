@@ -27,17 +27,17 @@ const Desktop =()=>{
         //     width: 550, height: 350, 
         // }
 
-        {
-            id: 8,
-            title: 'Notes',
-            x: 500, y: 100,
-            zIndex: 1,
-            content: <Notes />,
-            img: 'manta_ray',
-            width: 400,
-            height: 500,
-            key: 1
-        }
+        // {
+        //     id: 8,
+        //     title: 'Notes',
+        //     x: 500, y: 100,
+        //     zIndex: 1,
+        //     content: <Notes />,
+        //     img: 'manta_ray',
+        //     width: 400,
+        //     height: 500,
+        //     key: 1
+        // }
     ])
 
 

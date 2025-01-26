@@ -77,8 +77,8 @@ const Folder =({})=>{
         if(folderName === 'Documents'){
             const existingNotes = JSON.parse(localStorage.getItem('notes')) || []
             setNotes(existingNotes)
-            calculateStorageUsage()
         }
+        calculateStorageUsage()
     }
     
     const handleDelte =(title)=>{

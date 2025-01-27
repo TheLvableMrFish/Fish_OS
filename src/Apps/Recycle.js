@@ -38,7 +38,7 @@ const Recycle =({})=>{
         <>
         <div className='recycle-box container-fluid'>
             <div className='recycle-scrollable-container'>
-               
+                {notes.length === 0 ? <div className='recycle-empty'>Currently no files in Recycle</div> : ''}
                 {notes.map((note)=>(
                     <div className='recycle-app-documents row'>
                         <div key={note.title} className='recycle-app-document col-10'>{note.title}.txt

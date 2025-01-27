@@ -3,6 +3,7 @@ import Background from "../Apps/Background"
 import Paint from "../Apps/Paint"
 import Folder from "../Apps/Folder"
 import Notes from "../Apps/Notes"
+import Recycle from "../Apps/Recycle"
 
 export const application_data = [
     {
@@ -35,7 +36,10 @@ export const application_data = [
         title: 'Recycle',
         img: 'recycle_color',
         row: 1,
-        col: 0
+        col: 0,
+        app: <Recycle />,
+        width: 400,
+        height: 300
     },
     {
         id: 5,

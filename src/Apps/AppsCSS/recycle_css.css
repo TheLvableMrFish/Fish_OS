@@ -1,0 +1,60 @@
+.recycle-box{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 30px);
+    background: lightgray;
+    border-radius: 0 0 4px 4px;
+}
+
+.recycle-app-document{
+    font-size: 18px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.recycle-app-document:hover{
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+
+.recycle-document-recover{
+    margin-top: 4px;
+    margin-right: 4px;
+    height: 18px;
+}
+
+.recycle-scrollable-container{
+    width: 394px;
+    max-height: 266px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 0 0 0 4px;
+    margin-left: -10px;
+}
+
+.recycle-scrollable-container::-webkit-scrollbar-track,
+.recycle-scrollable-container::-webkit-scrollbar-thumb,
+.recycle-scrollable-container::-webkit-scrollbar-corner
+{
+    border-radius: 0 0 0 4px;
+}
+
+.recycle-scrollable-container::-webkit-scrollbar{
+    width: 8px;
+}
+
+.recycle-scrollable-container::-webkit-scrollbar-thumb{
+    background: #a8a8a8;
+    border-radius: 0 0 3px 0;
+}
+
+.recycle-scrollable-container::-webkit-scrollbar-thumb:hover{
+    background: #a0a0a0;
+}
+
+.recycle-scrollable-container::-webkit-scrollbar-track{
+    background: #f1f1f1;
+    border-radius: 0 0 4px 0;
+}

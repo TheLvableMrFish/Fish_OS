@@ -81,8 +81,20 @@ const Folder =({})=>{
         calculateStorageUsage()
     }
     
-    const handleDelte =(title)=>{
+    const handleDelete =(title)=>{
         const existingNotes = JSON.parse(localStorage.getItem('notes'))
+
+        // Find the note to be deleted
+        const noteToDelete = existingNotes.find((note)=> note.title === title)
+
+        // Add the note to sessionStorage
+        if(noteToDelete){
+            const deletedNotes = JSON.parse(sessionStorage.getItem('deletedNotes')) || []
+            console.log(deletedNotes)
+
+            deletedNotes.push(noteToDelete)
+            sessionStorage.setItem('deletedNotes', JSON.stringify(deletedNotes))
+        }
 
         // Create list of the notes without the one that has the current title
         const updateNotes = existingNotes.filter((note) => note.title !== title)
@@ -92,13 +104,14 @@ const Folder =({})=>{
 
         setNotes(updateNotes)
         calculateStorageUsage()
+
     }
 
     return(
         <>
 
         
-        <div className='paint-box container-fluid'>
+        <div className='folder-box container-fluid'>
             <div className='row'>
                 <div className='col-12'>{folderPath}</div>
                 <div className='folder-seperator col-12'></div>
@@ -153,7 +166,7 @@ const Folder =({})=>{
                                             <img 
                                                 src='./media/delete.png' 
                                                 className='folder-document-delte'
-                                                onClick={()=> handleDelte(note.title)}
+                                                onClick={()=> handleDelete(note.title)}
                                             />
                                         </div>
                                     </div>

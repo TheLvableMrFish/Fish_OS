@@ -10,6 +10,7 @@ import Window from '../components/Window'
 // import Paint from '../Apps/Paint'
 import Folder from '../Apps/Folder'
 import Notes from '../Apps/Notes'
+import Recycle from '../Apps/Recycle'
 
 // Data
 import { application_data } from '../Data/applications_data'
@@ -38,6 +39,18 @@ const Desktop =()=>{
         //     height: 500,
         //     key: 1
         // }
+
+        {
+            id: 4,
+            title: 'Recycle',
+            x: 500, y: 100,
+            zIndex: 1,
+            content: <Recycle />,
+            img: 'recycle_color',
+            width: 400,
+            height: 300,
+            key: 1
+        }
     ])
 
 

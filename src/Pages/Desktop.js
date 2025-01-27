@@ -40,17 +40,17 @@ const Desktop =()=>{
         //     key: 1
         // }
 
-        {
-            id: 4,
-            title: 'Recycle',
-            x: 500, y: 100,
-            zIndex: 1,
-            content: <Recycle />,
-            img: 'recycle_color',
-            width: 400,
-            height: 300,
-            key: 1
-        }
+        // {
+        //     id: 4,
+        //     title: 'Recycle',
+        //     x: 500, y: 100,
+        //     zIndex: 1,
+        //     content: <Recycle />,
+        //     img: 'recycle_color',
+        //     width: 400,
+        //     height: 300,
+        //     key: 1
+        // }
     ])
 
 

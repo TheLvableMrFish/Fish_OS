@@ -26,7 +26,7 @@ export const application_data = [
     },
     {
         id: 3,
-        title: 'Fish',
+        title: 'Me',
         img: 'clown_color',
         row: 1,
         col: 1
@@ -69,7 +69,7 @@ export const application_data = [
         col: 1,
         app: <Paint />,
         width: 650,
-        height: 500
+        height: 435
     },
     {
         id: 8,

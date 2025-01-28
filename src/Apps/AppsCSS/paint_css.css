@@ -8,12 +8,80 @@
     border-radius: 0 0 4px 4px;
 }
 
+
+.paint-text-label{
+    margin-top: 10px;
+    font-size: 19px;
+    margin-bottom: 1px;
+    margin-right: 19px;
+    margin-left: -8px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+.paint-text-label:hover{
+    cursor: pointer;
+}
+
+.paint-text-open-btn,
+.paint-text-save-btn{
+    margin-top: 10px;
+    padding: 0 !important;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.paint-text-open-btn{
+    margin-right: 5px;
+}
+
+.paint-text-open-btn:hover,
+.paint-text-save-btn:hover{
+    background-color: rgb(179, 153, 153);
+    color: white;
+    cursor: pointer;
+}
+
+.paint-text-label-edit{
+    margin-top: 10px;
+    margin-right: 8px;
+}
+
+.paint-text-label-edit:focus{
+    outline: none;
+}
+
+.paint-text-label-edit-btn{
+    margin-top: 10px;
+    padding: 0 !important;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.paint-text-label-edit-btn:hover{
+    background-color: rgb(179, 153, 153);
+    color: white;
+    cursor: pointer;
+}
+
+.paint-text-edit-container{
+    width: 100%;
+    margin-left: 0px;
+}
+
+.paint-header{
+
+}
+
 .paint-container{
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    height: calc(100% - 10px);
-    width: calc(100% - 10px);
+    margin-top: 10px;
+    margin-left: -4px;
+    height: 340px;
+    width: 630px;
     background: white;
     border-radius: 4px 4px 4px 4px;
 }

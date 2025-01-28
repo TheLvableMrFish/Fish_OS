@@ -5,6 +5,8 @@ import paint_css from './AppsCSS/paint_css.css'
 
 const Paint =({})=>{
 
+    const [title, setTitle] = useState('Title')
+    const [editTitle, setEditTitle] = useState(false)
     const [isDrawing, setIsDrawing] = useState(false)
     const [drawImage, setDrawImage] = useState(null)
     const canvasRef = useRef(null)
@@ -120,17 +122,54 @@ const Paint =({})=>{
         }
     }, [drawImage])
 
+    const handleStartEdit=()=>{
+        setEditTitle(true)
+    }
+
+    const handleEdit=()=>{
+        setEditTitle(false)
+        // localStorage.clear();
+        // localStorage.removeItem('paint')
+    }
+
     return(
         <>
            <div className='paint-box container-fluid'>
 
-                <div className='row'>
-                    
+           <div className='paint-header row'>
+            {!editTitle && 
+                    <div className='paint-text-edit-container row'>
+                        <label 
+                            className='paint-text-label col' 
+                            onClick={()=>{handleStartEdit()}}
+                        >{title}</label>
+                        <div className='paint-text-open-btn col'
+                            // onClick={()=>{handleOpen()}}
+                        >Open</div>
+                        <div className='paint-text-save-btn col'
+                            // onClick={()=>{handleSave()}}
+                        >Save</div>
+                    </div>
+                }
+                
+                {editTitle &&
+                    <div className='paint-text-edit-container row'>
+                        <input 
+                            className='paint-text-label-edit col' 
+                            value={title}
+                            onChange={(e)=> setTitle(e.target.value)}
+                            maxLength={22}
+                        ></input>
+                        <div className='paint-text-label-edit-btn col'
+                            onClick={()=>{handleEdit()}}
+                        >Change</div>
+                    </div>
+                }
                 </div>
 
                 <div className='paint-container container-fluid'>
                     <canvas 
-                        ref={canvasRef }
+                        ref={canvasRef}
                         className='paint-canvas row'
                         onMouseDown={handleMouseDown}
                         onMouseMove={handleMouseMove}

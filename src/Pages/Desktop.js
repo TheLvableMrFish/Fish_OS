@@ -14,6 +14,7 @@ import Recycle from '../Apps/Recycle'
 
 // Data
 import { application_data } from '../Data/applications_data'
+import Paint from '../Apps/Paint'
 
 const Desktop =()=>{
 
@@ -51,6 +52,18 @@ const Desktop =()=>{
         //     height: 300,
         //     key: 1
         // }
+
+        {
+            id: 7,
+            title: 'Paint',
+            x: 500, y: 100,
+            zIndex: 1,
+            img: 'squid_color',
+            content: <Paint />,
+            width: 650,
+            height: 435,
+            key: 1
+        }
     ])
 
 

@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Fish_OS/static/css/main.7a91e5ce.css",
-    "main.js": "/Fish_OS/static/js/main.60c715e3.js",
+    "main.css": "/Fish_OS/static/css/main.f2efdfb5.css",
+    "main.js": "/Fish_OS/static/js/main.1fa6e530.js",
     "static/media/background10.jpg": "/Fish_OS/static/media/background10.0eeced0854fb9204f65d.jpg",
     "index.html": "/Fish_OS/index.html",
-    "main.7a91e5ce.css.map": "/Fish_OS/static/css/main.7a91e5ce.css.map",
-    "main.60c715e3.js.map": "/Fish_OS/static/js/main.60c715e3.js.map"
+    "main.f2efdfb5.css.map": "/Fish_OS/static/css/main.f2efdfb5.css.map",
+    "main.1fa6e530.js.map": "/Fish_OS/static/js/main.1fa6e530.js.map"
   },
   "entrypoints": [
-    "static/css/main.7a91e5ce.css",
-    "static/js/main.60c715e3.js"
+    "static/css/main.f2efdfb5.css",
+    "static/js/main.1fa6e530.js"
   ]
 }

@@ -132,6 +132,34 @@ const Paint =({})=>{
         // localStorage.removeItem('paint')
     }
 
+    const saveDrawingAsImg =()=>{
+        const canvas = canvasRef.current
+        const dataURL = canvas.toDataURL("image/png")
+
+        // Get existig saved drawings or create an empty object
+        const existingPaints = JSON.parse(localStorage.getItem('paintSaves')) || []
+
+        // Make sure it's title isn't used already
+        const paintIndex = existingPaints.findIndex((p)=> p.title === title)
+
+        if( paintIndex !== -1){
+            // update existing entry
+            existingPaints[paintIndex].dataURL = dataURL
+        } else {
+            // add new entry
+            existingPaints.push({title, dataURL})
+        }
+
+        // update localStorage
+        localStorage.setItem("paintSaves", JSON.stringify(existingPaints))
+
+        console.log(existingPaints)
+    }
+
+    const loadDrawingImg =(imgTitle) =>{
+        
+    }
+
     return(
         <>
            <div className='paint-box container-fluid'>
@@ -147,7 +175,7 @@ const Paint =({})=>{
                             // onClick={()=>{handleOpen()}}
                         >Open</div>
                         <div className='paint-text-save-btn col'
-                            // onClick={()=>{handleSave()}}
+                            onClick={()=>{saveDrawingAsImg()}}
                         >Save</div>
                     </div>
                 }

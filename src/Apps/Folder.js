@@ -12,7 +12,8 @@ const Folder =({})=>{
         remainingStorage: 0,
         usedPercentage: 0
     })
-    const [notes, setNotes] = useState('')
+    const [notes, setNotes] = useState([])
+    const [paints, setPaints] = useState([])
 
     let folders = ['Desktop', 'Downloads', 'Documents', 'Pictures', 'This PC']
 
@@ -76,7 +77,13 @@ const Folder =({})=>{
         setFolderPath(folderName)
         if(folderName === 'Documents'){
             const existingNotes = JSON.parse(localStorage.getItem('notes')) || []
+            const savedPaints = JSON.parse(localStorage.getItem('paintSaves')) || []
+
+            console.log("Existing Notes:", existingNotes);
+        console.log("Saved Paints:", savedPaints);
+
             setNotes(existingNotes)
+            setPaints(savedPaints)
         }
         calculateStorageUsage()
     }
@@ -160,7 +167,8 @@ const Folder =({})=>{
 
                         <div className='folder-scrollable-container'>
                         {folderPath === 'Documents' ?
-                            notes.map((note)=>(
+                        <>
+                            {notes.map((note)=>(
                                     <div className='folder-app-documents row'>
                                         <div key={note.title} className='folder-app-document col-10'>{note.title}.txt
                                             <img 
@@ -171,7 +179,20 @@ const Folder =({})=>{
                                         </div>
                                     </div>
                                 
-                            )) 
+                            ))}
+                            {paints.map((paint)=>(
+                                    <div className='folder-app-documents row'>
+                                        <div key={paint.title} className='folder-app-document col-10'>{paint.title}.png
+                                            <img 
+                                                src='./media/delete.png' 
+                                                className='folder-document-delte'
+                                                // onClick={()=> handleDelete(paint.title)}
+                                            />
+                                        </div>
+                                    </div>
+                                
+                            ))}
+                        </>
                             : ''
                         } 
                         </div>

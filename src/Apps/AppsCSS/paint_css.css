@@ -93,3 +93,16 @@
     border-radius: 4px 4px 4px 4px;
     cursor: crosshair;
 }
+
+.paint-open-item{
+    padding: 10px 10px 10px 8px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.paint-open-item:hover{
+    background-color: var(--hover-color);
+    cursor: pointer;
+}

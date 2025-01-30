@@ -9,6 +9,8 @@ const Paint =({})=>{
     const [editTitle, setEditTitle] = useState(false)
     const [isDrawing, setIsDrawing] = useState(false)
     const [drawImage, setDrawImage] = useState(null)
+    const [openPaint, setOpenPaint] = useState(false)
+    const [allPaints, setAllPaints] = useState([])
     const canvasRef = useRef(null)
     const lastPos = useRef({x: 0, y: 0})
 
@@ -156,9 +158,20 @@ const Paint =({})=>{
         console.log(existingPaints)
     }
 
-    const loadDrawingImg =(imgTitle) =>{
-        
+    const loadDrawingImgs =(imgTitle) =>{
+        setAllPaints(JSON.parse(localStorage.getItem('paintSaves')) || [])
+        setOpenPaint(true)
     }
+
+    const handleOpenDrawing =(title, img)=>{
+        const canvas = canvasRef.current
+        const ctx = canvas.getContext("2d")
+        ctx.clearRect(0,0, canvas.width, canvas.height)
+        setTitle(title)
+        setDrawImage(img)
+        setOpenPaint(false)
+    }
+
 
     return(
         <>
@@ -172,7 +185,7 @@ const Paint =({})=>{
                             onClick={()=>{handleStartEdit()}}
                         >{title}</label>
                         <div className='paint-text-open-btn col'
-                            // onClick={()=>{handleOpen()}}
+                            onClick={()=>{loadDrawingImgs()}}
                         >Open</div>
                         <div className='paint-text-save-btn col'
                             onClick={()=>{saveDrawingAsImg()}}
@@ -206,6 +219,42 @@ const Paint =({})=>{
                     >
                     </canvas>
                 </div>
+
+                {openPaint && <div className='notes-open-list container-fluid'>
+                    <div className='window-header notes-open-header container-fluid'>
+                        <img className='window-logo' src='./media/clam_color.png' />
+                        <div className='window-title'>Documents</div>
+                        <div className='window-widgets-container'>
+                            <div 
+                                className='window-close-btn window-widget'
+                            ><img 
+                                className='window-widget-img' 
+                                onClick={()=>{setOpenPaint(false)}}
+                                src='./media/close2.png'
+                            /></div>
+                        </div>
+                    </div>
+                    <div className='notes-scrollable-container'>
+                    <div className='row'>
+                        {allPaints.length > 0 ? allPaints.map((paint, index)=>(
+                            <>
+                                <div 
+                                    className={`paint-open-item
+                                        col-3`}
+                                    onClick={()=>handleOpenDrawing(paint.title, paint.dataURL)}
+                                >{paint.title}</div>
+                               
+                            </>
+                        )) : <div className='notes-open-empty'>
+                            No notes yet.
+                            Try writing something and then 
+                            <br />
+                            press the save button! 
+                        </div>}
+
+                    </div>
+                    </div>
+                </div>}
            </div>
         </>
     )

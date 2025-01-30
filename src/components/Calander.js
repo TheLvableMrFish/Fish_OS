@@ -101,7 +101,7 @@ const Calander =()=>{
                                 className={`
                                     calander-day-item col 
                                     ${isPrevMonth || isNextMonth ? 'calander-date-out-of-month' : ''}
-                                    ${isToday(day) ? 'calander-date-today': ''}
+                                    ${(!isPrevMonth && !isNextMonth) && isToday(day) ? 'calander-date-today': ''}
                                     `}>
                                 {day || ''}
                             </li>

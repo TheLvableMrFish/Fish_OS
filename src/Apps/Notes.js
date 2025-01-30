@@ -19,6 +19,7 @@ const Notes =({})=>{
     const handleEdit=()=>{
         setEditTitle(false)
         // localStorage.clear();
+        // sessionStorage.clear()
         // localStorage.removeItem('notes')
     }
 

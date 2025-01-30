@@ -5,15 +5,16 @@ import recycle_css from './AppsCSS/recycle_css.css'
 const Recycle =({})=>{
 
     const [notes, setNotes] = useState([])
+    const [paints, setPaints] = useState([])
 
-    const existingNotes = JSON.parse(sessionStorage.getItem('deletedNotes')) || []
+    const existingNotes = JSON.parse(sessionStorage.getItem('deleted_notes')) || []
 
     useEffect(()=>{
         setNotes(existingNotes)
     }, [])
 
     const handleRecover =(title)=>{
-        const deletedNotes = JSON.parse(sessionStorage.getItem('deletedNotes')) || []
+        const deletedNotes = JSON.parse(sessionStorage.getItem('deleted_notes')) || []
 
         // Find the note to be recovered
         const noteToRecover = deletedNotes.find((note)=> note.title === title)
@@ -30,7 +31,7 @@ const Recycle =({})=>{
         const updateRecoveredNotes = deletedNotes.filter((note)=> note.title !== title)
 
         // Update session storage
-        sessionStorage.setItem('deletedNotes', JSON.stringify(updateRecoveredNotes))
+        sessionStorage.setItem('deleted_notes', JSON.stringify(updateRecoveredNotes))
         setNotes(updateRecoveredNotes)
     }
 

@@ -88,28 +88,32 @@ const Folder =({})=>{
         calculateStorageUsage()
     }
     
-    const handleDelete =(title)=>{
-        const existingNotes = JSON.parse(localStorage.getItem('notes'))
+    const handleDelete =(title, fileType)=>{
+
+        const existingItems = JSON.parse(localStorage.getItem(fileType))
 
         // Find the note to be deleted
-        const noteToDelete = existingNotes.find((note)=> note.title === title)
+        const itemToDelete = existingItems.find((item)=> item.title === title)
 
         // Add the note to sessionStorage
-        if(noteToDelete){
-            const deletedNotes = JSON.parse(sessionStorage.getItem('deletedNotes')) || []
-            console.log(deletedNotes)
+        if(itemToDelete){
+            const deletedItem = JSON.parse(sessionStorage.getItem(`deleted_${fileType}}`)) || []
 
-            deletedNotes.push(noteToDelete)
-            sessionStorage.setItem('deletedNotes', JSON.stringify(deletedNotes))
+            deletedItem.push(itemToDelete)
+            sessionStorage.setItem(`deleted_${fileType}`, JSON.stringify(deletedItem))
         }
 
         // Create list of the notes without the one that has the current title
-        const updateNotes = existingNotes.filter((note) => note.title !== title)
+        const updateItems = existingItems.filter((item) => item.title !== title)
 
         // Update local storage 
-        localStorage.setItem('notes', JSON.stringify(updateNotes))
+        localStorage.setItem(fileType, JSON.stringify(updateItems))
 
-        setNotes(updateNotes)
+        if(fileType === 'notes'){
+            setNotes(updateItems)
+        } else if(fileType === 'paintSaves'){
+            setPaints(updateItems)
+        }
         calculateStorageUsage()
 
     }
@@ -174,7 +178,7 @@ const Folder =({})=>{
                                             <img 
                                                 src='./media/delete.png' 
                                                 className='folder-document-delte'
-                                                onClick={()=> handleDelete(note.title)}
+                                                onClick={()=> handleDelete(note.title, 'notes')}
                                             />
                                         </div>
                                     </div>
@@ -186,7 +190,7 @@ const Folder =({})=>{
                                             <img 
                                                 src='./media/delete.png' 
                                                 className='folder-document-delte'
-                                                // onClick={()=> handleDelete(paint.title)}
+                                                onClick={()=> handleDelete(paint.title, 'paintSaves')}
                                             />
                                         </div>
                                     </div>

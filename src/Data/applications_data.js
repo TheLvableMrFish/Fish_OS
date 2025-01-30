@@ -45,8 +45,8 @@ export const application_data = [
         id: 5,
         title: 'Calculator',
         img: 'crab_color',
-        row: 1,
-        col: 2,
+        row: 3,
+        col: 1,
         app: <Calculator />,
         width: 200,
         height: 265

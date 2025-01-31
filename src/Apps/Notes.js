@@ -110,7 +110,7 @@ const Notes =({})=>{
                     <div className='notes-scrollable-container'>
                     <div className='row'>
                         {notes.length > 0 ? notes.map((note, index)=>(
-                            <>
+                            <React.Fragment key={index}>
                                 <div 
                                     className={`notes-open-item
                                         ${index === notes.length - 1 ?
@@ -120,7 +120,7 @@ const Notes =({})=>{
                                 >{note.title}</div>
                                 <div 
                                     className='notes-open-item-text col-8'>{note.note}</div>
-                            </>
+                            </React.Fragment>
                         )) : <div className='notes-open-empty'>
                             No notes yet.
                             Try writing something and then 

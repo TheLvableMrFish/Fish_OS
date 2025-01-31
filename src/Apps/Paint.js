@@ -163,12 +163,14 @@ const Paint =({})=>{
         setOpenPaint(true)
     }
 
-    const handleOpenDrawing =(title, img)=>{
+    const handleOpenDrawing =(paintTitle, img)=>{
         const canvas = canvasRef.current
         const ctx = canvas.getContext("2d")
-        ctx.clearRect(0,0, canvas.width, canvas.height)
-        setTitle(title)
-        setDrawImage(img)
+        if(paintTitle != title){
+            ctx.clearRect(0,0, canvas.width, canvas.height)
+            setTitle(paintTitle)
+            setDrawImage(img)
+        }
         setOpenPaint(false)
     }
 
@@ -220,8 +222,8 @@ const Paint =({})=>{
                     </canvas>
                 </div>
 
-                {openPaint && <div className='notes-open-list container-fluid'>
-                    <div className='window-header notes-open-header container-fluid'>
+                {openPaint && <div className='paint-open-list container-fluid'>
+                    <div className='window-header paint-open-header container-fluid'>
                         <img className='window-logo' src='./media/clam_color.png' />
                         <div className='window-title'>Documents</div>
                         <div className='window-widgets-container'>
@@ -234,17 +236,17 @@ const Paint =({})=>{
                             /></div>
                         </div>
                     </div>
-                    <div className='notes-scrollable-container'>
+                    <div className='paint-scrollable-container'>
                     <div className='row'>
                         {allPaints.length > 0 ? allPaints.map((paint, index)=>(
-                            <>
+                            <React.Fragment key={index}>
                                 <div 
                                     className={`paint-open-item
                                         col-3`}
                                     onClick={()=>handleOpenDrawing(paint.title, paint.dataURL)}
                                 >{paint.title}</div>
                                
-                            </>
+                            </React.Fragment>
                         )) : <div className='notes-open-empty'>
                             No notes yet.
                             Try writing something and then 

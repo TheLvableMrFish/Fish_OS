@@ -73,8 +73,20 @@
     margin-left: 0px;
 }
 
-.paint-header{
+.paint-open-header{
+    cursor: default;
+}
 
+.paint-open-list{
+    background: lightgray;
+    position: absolute;
+    border: 2px solid #808080;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    padding: 0;
+    border-radius: 6px;
+    top: -25px;
+    left: 0;
 }
 
 .paint-container{
@@ -105,4 +117,36 @@
 .paint-open-item:hover{
     background-color: var(--hover-color);
     cursor: pointer;
+}
+
+.paint-scrollable-container{
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 0 0 0 4px;
+}
+
+.paint-scrollable-container::-webkit-scrollbar-track,
+.paint-scrollable-container::-webkit-scrollbar-thumb,
+.paint-scrollable-container::-webkit-scrollbar-corner
+{
+    border-radius: 0 0 0 4px;
+}
+
+.paint-scrollable-container::-webkit-scrollbar{
+    width: 8px;
+}
+
+.paint-scrollable-container::-webkit-scrollbar-thumb{
+    background: #a8a8a8;
+    border-radius: 0 0 2px 0;
+}
+
+.paint-scrollable-container::-webkit-scrollbar-thumb:hover{
+    background: #a0a0a0;
+}
+
+.paint-scrollable-container::-webkit-scrollbar-track{
+    background: #f1f1f1;
+    border-radius: 0 0 4px 0;
 }

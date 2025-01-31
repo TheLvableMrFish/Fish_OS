@@ -8,45 +8,64 @@ const Recycle =({})=>{
     const [paints, setPaints] = useState([])
 
     const existingNotes = JSON.parse(sessionStorage.getItem('deleted_notes')) || []
+    const existingPaints = JSON.parse(sessionStorage.getItem('deleted_paintSaves')) || []
 
     useEffect(()=>{
         setNotes(existingNotes)
+        setPaints(existingPaints)
     }, [])
 
-    const handleRecover =(title)=>{
-        const deletedNotes = JSON.parse(sessionStorage.getItem('deleted_notes')) || []
+    const handleRecover =(title, fileType)=>{
+        const deletedItems = JSON.parse(sessionStorage.getItem(`deleted_${fileType}`)) || []
 
         // Find the note to be recovered
-        const noteToRecover = deletedNotes.find((note)=> note.title === title)
+        const itemToRecover = deletedItems.find((item)=> item.title === title)
 
         // Add the note to the local storage
-        if(noteToRecover){
-            const existingNotes = JSON.parse(localStorage.getItem('notes')) || []
+        if(itemToRecover){
+            const existingItems = JSON.parse(localStorage.getItem(fileType)) || []
 
-            existingNotes.push(noteToRecover)
-            localStorage.setItem('notes', JSON.stringify(existingNotes))
+            existingItems.push(itemToRecover)
+            localStorage.setItem(fileType, JSON.stringify(existingItems))
         }
 
         // Create list of the
-        const updateRecoveredNotes = deletedNotes.filter((note)=> note.title !== title)
+        const updatedRecoverItems = deletedItems.filter((item)=> item.title !== title)
 
         // Update session storage
-        sessionStorage.setItem('deleted_notes', JSON.stringify(updateRecoveredNotes))
-        setNotes(updateRecoveredNotes)
+        sessionStorage.setItem(`deleted_${fileType}`, JSON.stringify(updatedRecoverItems))
+        
+        if(fileType === 'notes'){
+            setNotes(updatedRecoverItems)
+        } else if(fileType === 'paintSaves'){
+            setPaints(updatedRecoverItems)
+        }
     }
 
     return(
         <>
         <div className='recycle-box container-fluid'>
             <div className='recycle-scrollable-container'>
-                {notes.length === 0 ? <div className='recycle-empty'>Currently no files in Recycle</div> : ''}
-                {notes.map((note)=>(
-                    <div className='recycle-app-documents row'>
+                {(notes.length === 0 && paints.length === 0) ? <div className='recycle-empty'>Currently no files in Recycle</div> : ''}
+                {notes.map((note, index)=>(
+                    <div key={index} className='recycle-app-documents row'>
                         <div key={note.title} className='recycle-app-document col-10'>{note.title}.txt
                             <img 
                                 src='./media/recover.png' 
                                 className='recycle-document-recover'
-                                onClick={()=>handleRecover(note.title)}
+                                onClick={()=>handleRecover(note.title, 'notes')}
+                            />
+                        </div>
+                    </div>
+                ))}
+
+                {paints.map((paint, index)=>(
+                    <div key={index} className='recycle-app-documents row'>
+                        <div key={paint.title} className='recycle-app-document col-10'>{paint.title}.png
+                            <img 
+                                src='./media/recover.png' 
+                                className='recycle-document-recover'
+                                onClick={()=>handleRecover(paint.title, 'paintSaves')}
                             />
                         </div>
                     </div>

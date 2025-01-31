@@ -80,7 +80,7 @@ const Folder =({})=>{
             const savedPaints = JSON.parse(localStorage.getItem('paintSaves')) || []
 
             console.log("Existing Notes:", existingNotes);
-        console.log("Saved Paints:", savedPaints);
+            console.log("Saved Paints:", savedPaints);
 
             setNotes(existingNotes)
             setPaints(savedPaints)
@@ -97,7 +97,7 @@ const Folder =({})=>{
 
         // Add the note to sessionStorage
         if(itemToDelete){
-            const deletedItem = JSON.parse(sessionStorage.getItem(`deleted_${fileType}}`)) || []
+            const deletedItem = JSON.parse(sessionStorage.getItem(`deleted_${fileType}`)) || []
 
             deletedItem.push(itemToDelete)
             sessionStorage.setItem(`deleted_${fileType}`, JSON.stringify(deletedItem))
@@ -128,8 +128,8 @@ const Folder =({})=>{
                 <div className='folder-seperator col-12'></div>
                 <div className='folder-list col-3'>
 
-                    {folders.map((folder)=>(
-                        <div key={folder} className='folder-item' onClick={()=>handleClick(folder)}>
+                    {folders.map((folder, index)=>(
+                        <div key={index} className='folder-item' onClick={()=>handleClick(folder)}>
                             <img className='folder-img' src='./media/clam_color.png'/> {folder}
                         </div>
                         
@@ -173,8 +173,8 @@ const Folder =({})=>{
                         {folderPath === 'Documents' ?
                         <>
                             {notes.map((note)=>(
-                                    <div className='folder-app-documents row'>
-                                        <div key={note.title} className='folder-app-document col-10'>{note.title}.txt
+                                    <div key={note.title} className='folder-app-documents row'>
+                                        <div  className='folder-app-document col-10'>{note.title}.txt
                                             <img 
                                                 src='./media/delete.png' 
                                                 className='folder-document-delte'
@@ -185,8 +185,8 @@ const Folder =({})=>{
                                 
                             ))}
                             {paints.map((paint)=>(
-                                    <div className='folder-app-documents row'>
-                                        <div key={paint.title} className='folder-app-document col-10'>{paint.title}.png
+                                    <div key={paint.title} className='folder-app-documents row'>
+                                        <div  className='folder-app-document col-10'>{paint.title}.png
                                             <img 
                                                 src='./media/delete.png' 
                                                 className='folder-document-delte'

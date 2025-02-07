@@ -174,6 +174,10 @@ const Paint =({})=>{
             setTitle(paintTitle)
             setDrawImage(img)
         }
+        if(paintTitle === title){
+            setTitle(paintTitle)
+            setDrawImage(img)
+        }
         setOpenPaint(false)
     }
 

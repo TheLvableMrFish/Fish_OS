@@ -273,9 +273,9 @@ const Paint =({})=>{
                                 >{paint.title}</div>
                                
                             </React.Fragment>
-                        )) : <div className='notes-open-empty'>
-                            No notes yet.
-                            Try writing something and then 
+                        )) : <div className='paint-open-empty'>
+                            No images yet.
+                            Try painting something and then 
                             <br />
                             press the save button! 
                         </div>}

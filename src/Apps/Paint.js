@@ -6,6 +6,7 @@ import paint_css from './AppsCSS/paint_css.css'
 const Paint =({})=>{
 
     const [title, setTitle] = useState('Title')
+    const [color, setColor] = useState('Black')
     const [editTitle, setEditTitle] = useState(false)
     const [isDrawing, setIsDrawing] = useState(false)
     const [drawImage, setDrawImage] = useState(null)
@@ -13,6 +14,8 @@ const Paint =({})=>{
     const [allPaints, setAllPaints] = useState([])
     const canvasRef = useRef(null)
     const lastPos = useRef({x: 0, y: 0})
+
+    const colorList = ["Black", "White", "Red", "Blue", "Pink", "Green", "Brown", "Orange"]
 
     // Set canvas size based on parent dimensions
     const setCanvasSize =()=>{
@@ -78,7 +81,7 @@ const Paint =({})=>{
         ctx.beginPath()
         ctx.moveTo(lastX, lastY) // Start from last position
         ctx.lineTo(x, y) // Draw a line to the curr position
-        ctx.strokeStyle = 'black'
+        ctx.strokeStyle = color
         ctx.lineWidth = 2
         ctx.lineCap = 'round' // smooth corner for the lines
         ctx.stroke() // Draw
@@ -174,6 +177,10 @@ const Paint =({})=>{
         setOpenPaint(false)
     }
 
+    const handleColorChange =(newColor)=>{
+        setColor(newColor)
+    }
+
 
     return(
         <>
@@ -194,6 +201,10 @@ const Paint =({})=>{
                         >Save</div>
                     </div>
                 }
+
+               
+
+                
                 
                 {editTitle &&
                     <div className='paint-text-edit-container row'>
@@ -208,6 +219,17 @@ const Paint =({})=>{
                         >Change</div>
                     </div>
                 }
+                </div>
+
+                <div className='color-container row'>
+                    {colorList.map((color)=>(
+                        <div 
+                            key={color} 
+                            className='color col'
+                            style={{backgroundColor:color}}
+                            onClick={()=>{handleColorChange(color)}}
+                        ></div>
+                    ))}
                 </div>
 
                 <div className='paint-container container-fluid'>

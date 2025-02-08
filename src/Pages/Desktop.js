@@ -61,7 +61,7 @@ const Desktop =()=>{
             img: 'squid_color',
             content: <Paint />,
             width: 650,
-            height: 435,
+            height: 440,
             key: 1
         }
     ])

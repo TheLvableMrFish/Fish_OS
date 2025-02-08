@@ -171,8 +171,7 @@ const Folder =({})=>{
 
                         <div className='folder-scrollable-container'>
                         {folderPath === 'Documents' ?
-                        <>
-                            {notes.map((note)=>(
+                            notes.map((note)=>(
                                     <div key={note.title} className='folder-app-documents row'>
                                         <div  className='folder-app-document col-10'>{note.title}.txt
                                             <img 
@@ -183,8 +182,12 @@ const Folder =({})=>{
                                         </div>
                                     </div>
                                 
-                            ))}
-                            {paints.map((paint)=>(
+                            )) : ''
+                        } 
+
+                        {folderPath === 'Pictures' ?
+                            
+                            paints.map((paint)=>(
                                     <div key={paint.title} className='folder-app-documents row'>
                                         <div  className='folder-app-document col-10'>{paint.title}.png
                                             <img 
@@ -195,10 +198,8 @@ const Folder =({})=>{
                                         </div>
                                     </div>
                                 
-                            ))}
-                        </>
-                            : ''
-                        } 
+                            )) : ''
+                        }
                         </div>
                     </div>
                 </div>

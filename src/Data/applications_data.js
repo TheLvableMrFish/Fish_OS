@@ -4,6 +4,7 @@ import Paint from "../Apps/Paint"
 import Folder from "../Apps/Folder"
 import Notes from "../Apps/Notes"
 import Recycle from "../Apps/Recycle"
+import AboutMe from "../Apps/AboutMe"
 
 export const application_data = [
     {
@@ -26,10 +27,13 @@ export const application_data = [
     },
     {
         id: 3,
-        title: 'Me',
+        title: 'About Me',
         img: 'clown_color',
         row: 1,
-        col: 1
+        col: 1,
+        app: <AboutMe />,
+        width: 520,
+        height: 400
     },
     {
         id: 4,

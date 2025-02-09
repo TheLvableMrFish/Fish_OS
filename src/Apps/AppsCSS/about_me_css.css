@@ -1,0 +1,43 @@
+.about-me-box{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 30px);
+    background: lightgray;
+    border-radius: 0 0 4px 4px;
+}
+
+.about-me-img{
+    max-width: 150px;
+    max-height: 150px;
+    margin-top: 15px;
+}
+
+.about-me-top-text{
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.about-me-skills{
+    text-align: center;
+    margin-top: 10px;
+    background-color: red;
+    width: 95.2%;
+    margin-left: 2.4%;
+    padding: 2px 0 2px 0;
+    color: white;
+    border: 1px solid #000;
+}
+
+.about-me-skills-container{
+    margin-left: 0%;
+}
+
+.about-me-skills-title{
+    text-align: center;
+    border: 1px solid #000;
+    margin-top: -9px;
+    background-color: white;
+    padding-bottom: 18px;
+}

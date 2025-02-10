@@ -65,17 +65,17 @@ const Desktop =()=>{
         //     height: 440,
         //     key: 1
         // }
-        {
-            id: 3,
-            title: 'About Me',
-            x: 500, y: 100,
-            zIndex: 1,
-            img: 'clown_color',
-            content: <AboutMe />,
-            width: 520,
-            height: 400,
-            key: 3
-        }
+        // {
+        //     id: 3,
+        //     title: 'About Me',
+        //     x: 500, y: 100,
+        //     zIndex: 1,
+        //     img: 'clown_color',
+        //     content: <AboutMe />,
+        //     width: 520,
+        //     height: 400,
+        //     key: 3
+        // }
     ])
 
 

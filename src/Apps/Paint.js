@@ -12,6 +12,8 @@ const Paint =({})=>{
     const [drawImage, setDrawImage] = useState(null)
     const [openPaint, setOpenPaint] = useState(false)
     const [allPaints, setAllPaints] = useState([])
+    const [brushSize, setBrushSize] = useState(2)
+
     const canvasRef = useRef(null)
     const lastPos = useRef({x: 0, y: 0})
 
@@ -60,7 +62,7 @@ const Paint =({})=>{
             // Use requestAnimationFrame for smoother drawing
             requestAnimationFrame(()=> draw(x, y, ctx))
         },
-        [isDrawing]
+        [isDrawing, brushSize]
     )
 
     const handleMouseUp=()=>{
@@ -75,6 +77,15 @@ const Paint =({})=>{
         setIsDrawing(false)
     }
 
+    const handleWheel = (e)=>{
+        e.preventDefault()
+        setBrushSize((prevSize)=>{
+            let newSize = e.deltaY < 0 ? prevSize + 1 : prevSize - 1
+            newSize = (newSize < 1 ? newSize = 1 : newSize > 50 ? newSize = 50 : newSize)
+            return newSize
+        })
+    }
+
     const draw = (x, y, ctx) =>{
         const {x: lastX, y: lastY} = lastPos.current
 
@@ -82,7 +93,7 @@ const Paint =({})=>{
         ctx.moveTo(lastX, lastY) // Start from last position
         ctx.lineTo(x, y) // Draw a line to the curr position
         ctx.strokeStyle = color
-        ctx.lineWidth = 2
+        ctx.lineWidth = brushSize
         ctx.lineCap = 'round' // smooth corner for the lines
         ctx.stroke() // Draw
 
@@ -244,6 +255,7 @@ const Paint =({})=>{
                         onMouseMove={handleMouseMove}
                         onMouseUp={handleMouseUp}
                         onMouseLeave={handleMouseLeave}
+                        onWheel={handleWheel}
                     >
                     </canvas>
                 </div>

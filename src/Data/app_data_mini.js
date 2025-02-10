@@ -18,7 +18,7 @@ export const app_data_mini = [
     // },
     {
         id: 3,
-        title: 'Me',
+        title: ' About Me',
         img: 'clown_color',
         row: 1,
         col: 1

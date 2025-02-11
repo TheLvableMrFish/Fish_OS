@@ -1,7 +1,6 @@
 {
   "name": "windows",
   "version": "0.1.0",
-  "homepage": "https://TheLvableMrFish.github.io/Fish_OS",
   "private": true,
   "dependencies": {
     "cra-template": "1.2.0",

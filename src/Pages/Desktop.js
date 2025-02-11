@@ -16,6 +16,7 @@ import Recycle from '../Apps/Recycle'
 import { application_data } from '../Data/applications_data'
 import Paint from '../Apps/Paint'
 import AboutMe from "../Apps/AboutMe"
+import Background from '../Apps/Background'
 
 const Desktop =()=>{
 
@@ -75,6 +76,17 @@ const Desktop =()=>{
         //     width: 520,
         //     height: 400,
         //     key: 3
+        // }
+        // {
+        //     id: 6,
+        //     title: 'Background',
+        //     x: 500, y: 100,
+        //     zIndex: 1,
+        //     img: 'star_fish',
+        //     content: <Background />,
+        //     width: 500,
+        //     height: 400,
+        //     key: 6
         // }
     ])
 

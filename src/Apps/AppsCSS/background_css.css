@@ -62,10 +62,16 @@
     cursor: pointer;
 }
 
+.background-picture-container{
+    padding: 3px 10px 0 10px;
+    margin-left: 8px;
+}
+
 .background-img-container{
     padding: 3px 10px 0 10px;
     margin-left: 8px;
 }
+
 
 .background-background-img{
     cursor: pointer;

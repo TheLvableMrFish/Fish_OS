@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 
 import background_css from './AppsCSS/background_css.css'
@@ -7,6 +7,14 @@ const Background =({})=>{
 
     const [background, setBackground] = useState('background1.jpg')
     const [selectedText, setSelectedText] = useState('Solid Color')
+    const [savedDrawings, setSavedDrawnings] = useState([])
+
+    useEffect(()=>{
+        if(selectedText === 'Image'){
+            const drawings = JSON.parse(localStorage.getItem('paintSaves')) || []
+            setSavedDrawnings(drawings)
+        }
+    }, [selectedText])
 
     const handleBackgroundColorChange=(color)=>{
         setBackground(color)
@@ -20,6 +28,12 @@ const Background =({})=>{
         document.documentElement.style.setProperty('--bg-img', `url("./backgrounds/${img}.jpg")`)
         document.documentElement.style.setProperty('--bg-img', `url("../../backgrounds/${img}.jpg")`)
         console.log(document.documentElement.style.getPropertyValue('--gb-img'))
+    }
+
+    const handleBackgroundDrawnImgChange=(imgDataURL)=>{
+        setBackground(imgDataURL)
+        document.documentElement.style.setProperty('--main-bg-color', `none`)
+        document.documentElement.style.setProperty('--bg-img', `url(${imgDataURL})`)
     }
 
     const handleTextChange=(text)=>{
@@ -48,7 +62,7 @@ const Background =({})=>{
                             <li>
                                 <a className='dropdown-item' href='#' onClick={()=>handleTextChange('Solid Color')}>Solid Color</a>
                                 <a className='dropdown-item' href='#' onClick={()=>handleTextChange('Picture')}>Picture</a>
-                                <a className='dropdown-item' href='#' onClick={()=>handleTextChange('Jif')}>Jif</a>
+                                <a className='dropdown-item' href='#' onClick={()=>handleTextChange('Image')}>Image</a>
                             </li>
                         </ul>
                     </div>
@@ -66,7 +80,7 @@ const Background =({})=>{
                         </div>
                     </div> : ''}
 
-                    {selectedText === 'Picture' ? <div className='background-img-container container col-12'>
+                    {selectedText === 'Picture' ? <div className='background-picture-container container col-12'>
                         <div className='row'>
                             {backgroundImgs.map((img)=>(
                                 <img 
@@ -77,6 +91,20 @@ const Background =({})=>{
                                     loading='lazy'
                                 />
                             ))}
+                        </div>
+                    </div> : ''}
+
+                    {selectedText === 'Image' ? <div className='background-img-container container col-12'>
+                        <div className='row'>
+                            {savedDrawings.length > 0 ? savedDrawings.map((drawing, index)=>(
+                                <img 
+                                    key={index}
+                                    className={`col-3 background-background-img`} 
+                                    src={drawing.dataURL}
+                                    onClick={()=>handleBackgroundDrawnImgChange(drawing.dataURL)}
+                                    loading='lazy'
+                                />
+                            )) : ''}
                         </div>
                     </div> : ''}
                     

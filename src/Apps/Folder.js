@@ -77,13 +77,16 @@ const Folder =({})=>{
         setFolderPath(folderName)
         if(folderName === 'Documents'){
             const existingNotes = JSON.parse(localStorage.getItem('notes')) || []
-            const savedPaints = JSON.parse(localStorage.getItem('paintSaves')) || []
 
             console.log("Existing Notes:", existingNotes);
-            console.log("Saved Paints:", savedPaints);
 
             setNotes(existingNotes)
+        } else if (folderName === 'Pictures'){
+            const savedPaints = JSON.parse(localStorage.getItem('paintSaves')) || []
+            console.log("Saved Paints:", savedPaints);
+
             setPaints(savedPaints)
+
         }
         calculateStorageUsage()
     }

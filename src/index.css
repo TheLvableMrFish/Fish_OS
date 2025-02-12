@@ -3,9 +3,10 @@
 :root{
   --hover-color: hsl(0, 0%, 91%);
   --open-color: hsl(0, 0%, 89%);
-  --main-bg-color: green;
-  /* --bg-img: none; */
-  --bg-img: url("../public/backgrounds/background10.jpg");
+  --main-bg-color: none;
+  /* --main-bg-color: green; */
+  --bg-img: none;
+  /* --bg-img: url("../public/backgrounds/background10.jpg"); */
 }
 
 html{

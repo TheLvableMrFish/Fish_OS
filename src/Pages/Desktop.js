@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Footer from '../components/Footer'
 import DesktopGrid from '../components/DesktopGrid'
@@ -19,6 +19,8 @@ import AboutMe from "../Apps/AboutMe"
 import Background from '../Apps/Background'
 
 const Desktop =()=>{
+
+    
 
     const [applicationsOpen, setApplicationsOpen] = useState([
         // {   
@@ -89,6 +91,24 @@ const Desktop =()=>{
         //     key: 6
         // }
     ])
+
+    useEffect(()=>{
+    
+        let background = JSON.parse(localStorage.getItem('background') || ['img', 'background10'])
+        console.log(background)
+        if(background[0] === 'img'){
+            document.documentElement.style.setProperty('--main-bg-color', `none`)
+            document.documentElement.style.setProperty('--bg-img', `url("./backgrounds/${background[1]}.jpg")`)
+            document.documentElement.style.setProperty('--bg-img', `url("../../backgrounds/${background[1]}.jpg")`)
+        } else if(background[0] === 'color'){
+            document.documentElement.style.setProperty('--bg-img', `none`)
+            document.documentElement.style.setProperty('--main-bg-color', `${background[1]}`)
+        } else if(background[0] === 'drawing'){
+            document.documentElement.style.setProperty('--main-bg-color', `none`)
+            document.documentElement.style.setProperty('--bg-img', `url(${background[1]})`)
+        }
+        
+    })
 
 
     const handleApplication=(appId, title, img, content, width, height)=>{

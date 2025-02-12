@@ -5,7 +5,7 @@ import background_css from './AppsCSS/background_css.css'
 
 const Background =({})=>{
 
-    const [background, setBackground] = useState('background1.jpg')
+    const [background, setBackground] = useState('background10')
     const [selectedText, setSelectedText] = useState('Solid Color')
     const [savedDrawings, setSavedDrawnings] = useState([])
 
@@ -20,6 +20,9 @@ const Background =({})=>{
         setBackground(color)
         document.documentElement.style.setProperty('--bg-img', `none`)
         document.documentElement.style.setProperty('--main-bg-color', `${color}`)
+
+        let saveBackground = ['color', color]
+        localStorage.setItem('background', JSON.stringify(saveBackground))
     }
 
     const handleBackgroundImgChange=(img)=>{
@@ -27,13 +30,18 @@ const Background =({})=>{
         document.documentElement.style.setProperty('--main-bg-color', `none`)
         document.documentElement.style.setProperty('--bg-img', `url("./backgrounds/${img}.jpg")`)
         document.documentElement.style.setProperty('--bg-img', `url("../../backgrounds/${img}.jpg")`)
-        console.log(document.documentElement.style.getPropertyValue('--gb-img'))
+
+        let saveBackground = ['img', img]
+        localStorage.setItem('background', JSON.stringify(saveBackground))
     }
 
     const handleBackgroundDrawnImgChange=(imgDataURL)=>{
         setBackground(imgDataURL)
         document.documentElement.style.setProperty('--main-bg-color', `none`)
         document.documentElement.style.setProperty('--bg-img', `url(${imgDataURL})`)
+
+        let saveBackground = ['drawing', imgDataURL]
+        localStorage.setItem('background', JSON.stringify(saveBackground))
     }
 
     const handleTextChange=(text)=>{
@@ -70,11 +78,12 @@ const Background =({})=>{
                     <div className='col-8'></div>
                     {selectedText === 'Solid Color' ? <div className='background-color-container container col-8'>
                         <div className='row'>
-                            {colors.map((color)=>(
+                            {colors.map((color, index)=>(
                                 <div 
                                     className={`col-2 background-background-color`} 
                                     style={{background: `${color}`}}
                                     onClick={()=>handleBackgroundColorChange(color)}
+                                    key={index}
                                 ></div>
                             ))}
                         </div>

@@ -93,8 +93,7 @@ const Desktop =()=>{
     ])
 
     useEffect(()=>{
-    
-        let background = JSON.parse(localStorage.getItem('background') || ['img', 'background10'])
+        let background = JSON.parse(localStorage.getItem('background')) || ['img', 'background10']
         console.log(background)
         if(background[0] === 'img'){
             document.documentElement.style.setProperty('--main-bg-color', `none`)
@@ -107,7 +106,7 @@ const Desktop =()=>{
             document.documentElement.style.setProperty('--main-bg-color', `none`)
             document.documentElement.style.setProperty('--bg-img', `url(${background[1]})`)
         }
-        
+
     })
 
 

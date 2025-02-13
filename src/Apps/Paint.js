@@ -177,6 +177,14 @@ const Paint =({})=>{
         setOpenPaint(true)
     }
 
+    const handleNewDrawingImg =()=>{
+        const canvas = canvasRef.current
+        const ctx = canvas.getContext("2d")
+
+        ctx.clearRect(0,0, canvas.width, canvas.height)
+        setTitle("Title")
+    }
+
     const handleOpenDrawing =(paintTitle, img)=>{
         const canvas = canvasRef.current
         const ctx = canvas.getContext("2d")
@@ -208,12 +216,15 @@ const Paint =({})=>{
                             className='paint-text-label col' 
                             onClick={()=>{handleStartEdit()}}
                         >{title}</label>
-                        <div className='paint-text-open-btn col'
+                        <div className='paint-text-btn paint-text-btn-mr col'
                             onClick={()=>{loadDrawingImgs()}}
                         >Open</div>
-                        <div className='paint-text-save-btn col'
+                        <div className='paint-text-btn paint-text-btn-mr col'
                             onClick={()=>{saveDrawingAsImg()}}
                         >Save</div>
+                        <div className='paint-text-btn col'
+                            onClick={()=>{handleNewDrawingImg()}}
+                        >New</div>
                     </div>
                 }
 

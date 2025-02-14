@@ -24,8 +24,7 @@
     cursor: pointer;
 }
 
-.notes-text-open-btn,
-.notes-text-save-btn{
+.notes-text-btn{
     margin-top: 10px;
     padding: 0 !important;
     text-align: center;
@@ -33,12 +32,11 @@
     border-radius: 5px;
 }
 
-.notes-text-open-btn{
+.notes-text-mr-btn{
     margin-right: 5px;
 }
 
-.notes-text-open-btn:hover,
-.notes-text-save-btn:hover{
+.notes-text-btn:hover{
     background-color: rgb(179, 153, 153);
     color: white;
     cursor: pointer;

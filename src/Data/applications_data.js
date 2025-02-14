@@ -9,7 +9,7 @@ import AboutMe from "../Apps/AboutMe"
 export const application_data = [
     {
         id: 1,
-        title: 'My Computer',
+        title: 'My Projects',
         img: 'my_computer',
         row: 0,
         col: 0

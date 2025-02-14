@@ -1,7 +1,7 @@
 export const app_data_mini = [
     {
         id: 1,
-        title: 'My Computer',
+        title: 'My Projects',
         img: 'my_computer',
         row: 0,
         col: 0

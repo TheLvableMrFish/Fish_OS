@@ -38,6 +38,11 @@ const Notes =({})=>{
         console.log(JSON.parse(localStorage.getItem('notes')))
     }
 
+    const handleNewNote=()=>{
+        setTitle('Title')
+        setNote('')
+    }
+
     const handleOpen =()=>{
         setOpenNotes(true)
         const existingNotes = JSON.parse(localStorage.getItem('notes')) || []
@@ -61,12 +66,16 @@ const Notes =({})=>{
                                 className='notes-text-label col' 
                                 onClick={()=>{handleStartEdit()}}
                             >{title}</label>
-                            <div className='notes-text-open-btn col'
+                            <div className='notes-text-btn notes-text-mr-btn col'
                                 onClick={()=>{handleOpen()}}
                             >Open</div>
-                            <div className='notes-text-save-btn col'
+                            <div className='notes-text-btn notes-text-mr-btn col'
                                 onClick={()=>{handleSave()}}
                             >Save</div>
+
+                            <div className='notes-text-btn  col'
+                                onClick={()=>{handleNewNote()}}
+                            >New</div>
                         </div>
                     }
                     
@@ -81,6 +90,8 @@ const Notes =({})=>{
                             <div className='notes-text-label-edit-btn col'
                                 onClick={()=>{handleEdit()}}
                             >Change</div>
+
+                            
                         </div>
                     }
 

@@ -73,7 +73,7 @@ export const application_data = [
         col: 1,
         app: <Paint />,
         width: 650,
-        height: 440
+        height: 465
     },
     {
         id: 8,

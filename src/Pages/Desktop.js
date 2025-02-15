@@ -57,17 +57,17 @@ const Desktop =()=>{
         //     key: 1
         // }
 
-        // {
-        //     id: 7,
-        //     title: 'Paint',
-        //     x: 500, y: 100,
-        //     zIndex: 1,
-        //     img: 'squid_color',
-        //     content: <Paint />,
-        //     width: 650,
-        //     height: 440,
-        //     key: 1
-        // }
+        {
+            id: 7,
+            title: 'Paint',
+            x: 500, y: 100,
+            zIndex: 1,
+            img: 'squid_color',
+            content: <Paint />,
+            width: 650,
+            height: 465,
+            key: 1
+        }
         // {
         //     id: 3,
         //     title: 'About Me',

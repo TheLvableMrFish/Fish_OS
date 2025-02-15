@@ -13,9 +13,79 @@ const Paint =({})=>{
     const [openPaint, setOpenPaint] = useState(false)
     const [allPaints, setAllPaints] = useState([])
     const [brushSize, setBrushSize] = useState(2)
+    const [tool, setTool] = useState('brush')
 
     const canvasRef = useRef(null)
     const lastPos = useRef({x: 0, y: 0})
+
+    const parseColor = (colorName)=>{
+        const colors = {
+            "Black": [0, 0, 0, 255],
+            "White": [255, 255, 255, 255],
+            "Red" : [255, 0, 0, 255],
+            "Blue" : [0, 0, 255, 255],
+            "Pink" : [255, 192, 203, 255],
+            "Green" : [0, 128, 0, 255],
+            "Brown" : [165, 42, 42, 255],
+            "Orange" : [255, 165, 0, 255]
+        }
+        return colors[colorName] || [0, 0, 0, 255]
+    }
+
+    // Check if the RGB out of RGBA match
+    const colorsMatch =(a,b)=>{
+        return a[0] === b[0] && a[1] === b[1] && a[2] === b[2]
+    }
+
+    // flood fill (bucket)
+    const floodFill =(ctx, startX, startY, fillColor)=>{
+        const canvasWidth = ctx.canvas.width
+        const canvasHeight = ctx.canvas.height
+        const imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight)
+        const data = imageData.data
+
+        const x = Math.floor(startX)
+        const y = Math.floor(startY)
+        const pixelPos = (y * canvasWidth + x) * 4
+        const targetColor = [data[pixelPos], data[pixelPos + 1], data[pixelPos + 2]]
+
+        if(colorsMatch(targetColor, fillColor)){
+            return
+        }
+
+        const pixelStack = [[x,y]]
+
+        while(pixelStack.length){
+            const newPos = pixelStack.pop()
+            const nx = newPos[0]
+            const ny = newPos[1]
+            const currentPos = (ny * canvasWidth + nx) * 4
+
+            // check if this pixel matches the target color
+            const currentColor = [
+                data[currentPos],
+                data[currentPos + 1],
+                data[currentPos + 2]
+            ]
+            if(!colorsMatch(currentColor, targetColor)){
+                continue
+            }
+
+            // set the pixel to the fill color
+            data[currentPos] = fillColor[0]
+            data[currentPos + 1] = fillColor[1]
+            data[currentPos + 2] = fillColor[2]
+
+            // Add neighboring pixels (up,down,left,right) to the stack
+            if(nx > 0) pixelStack.push([nx - 1, ny])
+            if(nx < canvasWidth - 1) pixelStack.push([nx + 1, ny])
+            if(ny > 0) pixelStack.push([nx, ny- 1])
+            if(ny < canvasHeight - 1) pixelStack.push([nx, ny + 1])
+        }
+
+        ctx.putImageData(imageData, 0, 0)
+    }
+
 
     const colorList = ["Black", "White", "Red", "Blue", "Pink", "Green", "Brown", "Orange"]
 
@@ -32,6 +102,17 @@ const Paint =({})=>{
         const ctx = canvas.getContext("2d")
         // reset any scale transformations
         ctx.scale(1,1) 
+
+        if(drawImage){
+            const img = new Image()
+            img.src = drawImage
+            img.onload =()=>{
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+            }
+        } else {
+            ctx.fillStyle = "White"
+            ctx.fillRect(0, 0, canvas.width, canvas.height)
+        }
     }
 
     // canvas resize (if we change the size later)
@@ -44,18 +125,27 @@ const Paint =({})=>{
     }, [])
 
     const handleMouseDown=(e)=>{
-        setIsDrawing(true)
-        const ctx = canvasRef.current.getContext("2d")
-        // Relative mouse cords to the canvas
-        const {x, y} = getCanvasCoords(e)
-        lastPos.current = {x, y}
-        // start drawing
-        draw(x, y, ctx)
+
+        if(tool === 'fill'){
+            const {x,y} = getCanvasCoords(e)
+            const ctx = canvasRef.current.getContext("2d")
+            const fillColor = parseColor(color)
+            floodFill(ctx, x, y, fillColor)
+            saveDrawing()
+        } else {
+            setIsDrawing(true)
+            const ctx = canvasRef.current.getContext("2d")
+            // Relative mouse cords to the canvas
+            const {x, y} = getCanvasCoords(e)
+            lastPos.current = {x, y}
+            // start drawing
+            draw(x, y, ctx)
+        }
     }
 
     const handleMouseMove = useCallback(
         (e)=>{
-            if (!isDrawing) return
+            if (!isDrawing || tool !== "brush") return
             const ctx = canvasRef.current.getContext("2d")
             const {x, y} = getCanvasCoords(e)
 
@@ -228,10 +318,6 @@ const Paint =({})=>{
                     </div>
                 }
 
-               
-
-                
-                
                 {editTitle &&
                     <div className='paint-text-edit-container row'>
                         <input 
@@ -245,6 +331,17 @@ const Paint =({})=>{
                         >Change</div>
                     </div>
                 }
+                </div>
+
+                <div className='paint-tools row'>
+                    <div 
+                        className={`paint-brush col-1 ${tool === 'brush' ? 'active':''}`}
+                        onClick={()=> setTool("brush")}
+                    >brush</div>
+                    <div 
+                        className={`paint-fill col-1 ${tool === 'fill' ? 'active':''}`}
+                        onClick={()=> setTool("fill")}
+                    >bucket</div>
                 </div>
 
                 <div className='color-container row'>
@@ -270,6 +367,8 @@ const Paint =({})=>{
                     >
                     </canvas>
                 </div>
+
+                
 
                 {openPaint && <div className='paint-open-list container-fluid'>
                     <div className='window-header paint-open-header container-fluid'>

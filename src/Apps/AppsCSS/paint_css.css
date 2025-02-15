@@ -170,3 +170,24 @@
     padding: 0 0 0 25px;
     margin: 10px;
 }
+
+.paint-tools{
+    margin-left: 0;
+
+    & > .col-1{
+        width: fit-content;
+        border: 1px solid #000 !important;
+        border-radius: 4px;
+        margin-right: 5px;
+        &:hover{
+            cursor: pointer;
+            background: rgb(179, 153, 153);
+            color: white;
+        }
+    }
+}
+
+.active{
+    background: rgb(179, 153, 153);
+    color: white;
+}

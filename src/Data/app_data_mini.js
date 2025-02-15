@@ -55,7 +55,7 @@ export const app_data_mini = [
         row: 2,
         col: 1,
         width: 650,
-        height: 500
+        height: 465
     },
     {
         id: 8,

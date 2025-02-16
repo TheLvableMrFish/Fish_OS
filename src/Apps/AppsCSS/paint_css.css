@@ -95,8 +95,8 @@
 
 .color{
     border: 1px solid #000;
-    height: 10px;
-    aspect-ratio: 1/1;
+    outline: 1px solid #000;
+    height: inherit;
     margin: 3px 5px 2px 5px;
     border-radius: 3px;
     &:hover {
@@ -172,7 +172,7 @@
 }
 
 .paint-tools{
-    margin-left: 0;
+    margin-top: 2px;
 
     & > .col-1{
         width: fit-content;
@@ -190,4 +190,8 @@
 .active{
     background: rgb(179, 153, 153);
     color: white;
+}
+
+.active-color{
+    outline: 1px solid lightgray;
 }

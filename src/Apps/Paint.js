@@ -334,6 +334,19 @@ const Paint =({})=>{
                 </div>
 
                 <div className='paint-tools row'>
+                    <div className='col-9'></div>
+                    
+                </div>
+
+                <div className='color-container paint-tools  row'>
+                    {colorList.map((colorItem)=>(
+                        <div 
+                        key={colorItem} 
+                        className={`color col ${colorItem === color ? 'active-color': ''}`}
+                        style={{backgroundColor:colorItem}}
+                        onClick={()=>{handleColorChange(colorItem)}}
+                        ></div>
+                    ))}
                     <div 
                         className={`paint-brush col-1 ${tool === 'brush' ? 'active':''}`}
                         onClick={()=> setTool("brush")}
@@ -342,17 +355,6 @@ const Paint =({})=>{
                         className={`paint-fill col-1 ${tool === 'fill' ? 'active':''}`}
                         onClick={()=> setTool("fill")}
                     >bucket</div>
-                </div>
-
-                <div className='color-container row'>
-                    {colorList.map((color)=>(
-                        <div 
-                            key={color} 
-                            className='color col'
-                            style={{backgroundColor:color}}
-                            onClick={()=>{handleColorChange(color)}}
-                        ></div>
-                    ))}
                 </div>
 
                 <div className='paint-container container-fluid'>

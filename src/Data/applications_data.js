@@ -5,6 +5,7 @@ import Folder from "../Apps/Folder"
 import Notes from "../Apps/Notes"
 import Recycle from "../Apps/Recycle"
 import AboutMe from "../Apps/AboutMe"
+import MyProjects from "../Apps/MyProjects"
 
 export const application_data = [
     {
@@ -12,7 +13,9 @@ export const application_data = [
         title: 'My Projects',
         img: 'my_computer',
         row: 0,
-        col: 0
+        col: 0,
+        app: <MyProjects />,
+        
     },
     {
         id: 2,

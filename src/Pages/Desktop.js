@@ -17,6 +17,7 @@ import { application_data } from '../Data/applications_data'
 import Paint from '../Apps/Paint'
 import AboutMe from "../Apps/AboutMe"
 import Background from '../Apps/Background'
+import MyProjects from '../Apps/MyProjects'
 
 const Desktop =()=>{
 
@@ -90,6 +91,17 @@ const Desktop =()=>{
         //     height: 400,
         //     key: 6
         // }
+        {
+            id: 1,
+            title: 'My Projects',
+            x: 500, y: 100,
+            zIndex: 1,
+            img: 'my_computer',
+            content: <MyProjects />,
+            width: 500,
+            height: 350,
+            key: 1
+        }
     ])
 
     useEffect(()=>{

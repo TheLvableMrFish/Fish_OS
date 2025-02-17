@@ -78,3 +78,53 @@
     padding: 10px;
     width: 120px;
 }
+
+.background-drawing-container{
+    padding: 3px 10px 0 10px;
+    margin-left: -6px;
+    width: 480px;
+}
+
+.background-background-drawing{
+    cursor: pointer;
+    padding: 10px;
+    width: 119px;
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding: 0 !important;
+    margin: 1px !important;
+}
+
+.background-scrollable-container{
+    margin-top: 5px;
+    width: 600px;
+    max-height: 180px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 0 0 0 4px;
+}
+
+.background-scrollable-container::-webkit-scrollbar-track,
+.background-scrollable-container::-webkit-scrollbar-thumb,
+.background-scrollable-container::-webkit-scrollbar-corner
+{
+    border-radius: 0 0 0 4px;
+}
+
+.background-scrollable-container::-webkit-scrollbar{
+    width: 8px;
+}
+
+.background-scrollable-container::-webkit-scrollbar-thumb{
+    background: #a8a8a8;
+    border-radius: 0 0 2px 0;
+}
+
+.background-scrollable-container::-webkit-scrollbar-thumb:hover{
+    background: #a0a0a0;
+}
+
+.background-scrollable-container::-webkit-scrollbar-track{
+    background: #f1f1f1;
+    border-radius: 0 0 4px 0;
+}

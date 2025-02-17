@@ -6,7 +6,7 @@ import background_css from './AppsCSS/background_css.css'
 const Background =({})=>{
 
     const [background, setBackground] = useState('background10')
-    const [selectedText, setSelectedText] = useState('Solid Color')
+    const [selectedText, setSelectedText] = useState('Image')
     const [savedDrawings, setSavedDrawnings] = useState([])
 
     useEffect(()=>{
@@ -102,13 +102,13 @@ const Background =({})=>{
                             ))}
                         </div>
                     </div> : ''}
-
-                    {selectedText === 'Image' ? <div className='background-img-container container col-12'>
+                    <div className='background-scrollable-container'>
+                    {selectedText === 'Image' ? <div className='background-drawing-container  container col-12'>
                         <div className='row'>
                             {savedDrawings.length > 0 ? savedDrawings.map((drawing, index)=>(
                                 <img 
                                     key={index}
-                                    className={`col-3 background-background-img`} 
+                                    className={`col-3 background-background-drawing`} 
                                     src={drawing.dataURL}
                                     onClick={()=>handleBackgroundDrawnImgChange(drawing.dataURL)}
                                     loading='lazy'
@@ -116,8 +116,7 @@ const Background =({})=>{
                             )) : ''}
                         </div>
                     </div> : ''}
-                    
-
+                    </div>
                 </div>
             </div>
         </>

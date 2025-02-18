@@ -99,7 +99,7 @@ const Desktop =()=>{
             img: 'my_computer',
             content: <MyProjects />,
             width: 500,
-            height: 350,
+            height: 400,
             key: 1
         }
     ])

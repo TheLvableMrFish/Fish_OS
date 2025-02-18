@@ -2,7 +2,7 @@ export const my_project_data = [
     {
         id: 1,
         title: "Game On",
-        img: "n/a",
+        img: "game_on",
         code_link: "https://github.com/TheLvableMrFish/gameon",
         host_link: "n/a",
     },

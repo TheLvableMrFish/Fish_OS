@@ -16,3 +16,41 @@
     border-radius: 2px;
     text-decoration: none;
 }
+
+.my-project-not-active{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.my-project-scrollable-container{
+    width: 496px;
+    max-height: 365px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 0 0 0 4px;
+}
+
+.my-project-scrollable-container::-webkit-scrollbar-track,
+.my-project-scrollable-container::-webkit-scrollbar-thumb,
+.my-project-scrollable-container::-webkit-scrollbar-corner
+{
+    border-radius: 0 0 0 4px;
+}
+
+.my-project-scrollable-container::-webkit-scrollbar{
+    width: 8px;
+}
+
+.my-project-scrollable-container::-webkit-scrollbar-thumb{
+    background: #a8a8a8;
+    border-radius: 0 0 2px 0;
+}
+
+.my-project-scrollable-container::-webkit-scrollbar-thumb:hover{
+    background: #a0a0a0;
+}
+
+.my-project-scrollable-container::-webkit-scrollbar-track{
+    background: #f1f1f1;
+    border-radius: 0 0 4px 0;
+}

@@ -15,7 +15,8 @@ export const application_data = [
         row: 0,
         col: 0,
         app: <MyProjects />,
-        
+        width: 500,
+        height: 400,
     },
     {
         id: 2,

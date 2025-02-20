@@ -17,18 +17,27 @@ const MyProjects =({})=>{
                         <img className='my-project-img img-fluid' src={`./projects/${project.img}.png`} />
                         <div className='my-project-btns row'>
 
-                        {}
-                        <a 
-                            className={`my-project-code my-project-btn ${project.code_link === 'n/a' ? 'my-project-not-active' : ''}`} 
-                            target='_blank'
-                            href={project.code_link != 'n/a' ? project.code_link : '#'}
-                        >Code</a>
-                        <a 
-                            className={`my-project-live my-project-btn ${project.host_link === 'n/a' ? 'my-project-not-active' : ''}`} 
-                            target='_blank'
-                            href={project.host_link != 'n/a' ? project.host_link : '#'}
-                        >Live</a>
+                        {project.code_link === 'n/a' ? 
+                            <div 
+                                className={`my-project-code my-project-btn  my-project-not-active`} 
+                            >Code</div> : 
+                            <a 
+                                className={`my-project-code my-project-btn`} 
+                                target='_blank'
+                                href={project.code_link}
+                            >Code</a> 
+                        }
 
+                        {project.host_link === 'n/a' ? 
+                            <div 
+                                className={`my-project-code my-project-btn  my-project-not-active`} 
+                            >Live</div> : 
+                            <a 
+                                className={`my-project-code my-project-btn`} 
+                                target='_blank'
+                                href={project.host_link}
+                            >Live</a> 
+                        }
                         </div>
                     </div>
                 ))

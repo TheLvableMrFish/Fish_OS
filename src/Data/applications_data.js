@@ -37,7 +37,7 @@ export const application_data = [
         col: 1,
         app: <AboutMe />,
         width: 520,
-        height: 400
+        height: 420
     },
     {
         id: 4,
@@ -77,7 +77,7 @@ export const application_data = [
         col: 1,
         app: <Paint />,
         width: 650,
-        height: 465
+        height: 455
     },
     {
         id: 8,

@@ -91,17 +91,17 @@ const Desktop =()=>{
         //     height: 400,
         //     key: 6
         // }
-        // {
-        //     id: 1,
-        //     title: 'My Projects',
-        //     x: 500, y: 100,
-        //     zIndex: 1,
-        //     img: 'my_computer',
-        //     content: <MyProjects />,
-        //     width: 500,
-        //     height: 400,
-        //     key: 1
-        // }
+        {
+            id: 1,
+            title: 'My Projects',
+            x: 500, y: 100,
+            zIndex: 1,
+            img: 'my_computer',
+            content: <MyProjects />,
+            width: 500,
+            height: 400,
+            key: 1
+        }
     ])
 
     useEffect(()=>{

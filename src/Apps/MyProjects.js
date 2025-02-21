@@ -30,10 +30,10 @@ const MyProjects =({})=>{
 
                         {project.host_link === 'n/a' ? 
                             <div 
-                                className={`my-project-code my-project-btn  my-project-not-active`} 
+                                className={`my-project-link my-project-btn  my-project-not-active`} 
                             >Live</div> : 
                             <a 
-                                className={`my-project-code my-project-btn`} 
+                                className={`my-project-link my-project-btn`} 
                                 target='_blank'
                                 href={project.host_link}
                             >Live</a> 

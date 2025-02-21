@@ -2,6 +2,10 @@
     margin: 10px 0 5px 0;
 }
 
+.my-project-img{
+    border-radius: 2px;
+}
+
 .my-project-title{
     margin-left: 2px;
 }
@@ -9,17 +13,28 @@
 .my-project-btn{
     text-align: center;
     margin-top: 2px;
-    border: 1px solid #000;
+    border: 1px solid black;
     width: 90%;
     margin-left: 5%;
     color: black;
     border-radius: 2px;
     text-decoration: none;
+    &:hover{
+
+        background-color: rgb(154, 189, 172);
+    }
+}
+
+.my-project-code{
+    margin-top: 4px;
 }
 
 .my-project-not-active{
     opacity: 0.6;
     cursor: not-allowed;
+    &:hover{
+        background-color: darkgray;
+    }
 }
 
 .my-project-scrollable-container{

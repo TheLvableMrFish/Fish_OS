@@ -11,9 +11,15 @@ const Recycle =({})=>{
     const existingPaints = JSON.parse(sessionStorage.getItem('deleted_paintSaves')) || []
 
     useEffect(()=>{
+        updateData()
+
+        
+    }, [existingNotes, existingPaints])
+
+    const updateData =()=>{
         setNotes(existingNotes)
         setPaints(existingPaints)
-    }, [])
+    }
 
     const handleRecover =(title, fileType)=>{
         const deletedItems = JSON.parse(sessionStorage.getItem(`deleted_${fileType}`)) || []
@@ -27,6 +33,8 @@ const Recycle =({})=>{
 
             existingItems.push(itemToRecover)
             localStorage.setItem(fileType, JSON.stringify(existingItems))
+
+            window.dispatchEvent(new StorageEvent('storage', {key: fileType}))
         }
 
         // Create list of the

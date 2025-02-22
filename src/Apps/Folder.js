@@ -15,19 +15,8 @@ const Folder =({})=>{
     const [notes, setNotes] = useState([])
     const [paints, setPaints] = useState([])
 
-    let folders = ['Desktop', 'Downloads', 'Documents', 'Pictures', 'This PC']
-
     
-
-        // const noteIndex = existingNotes.findIndex((n)=> n.title === title)
-
-        // if (noteIndex !== -1){
-        //     existingNotes[noteIndex].note = note
-        // } else {
-        //     existingNotes.push({title, note})
-        // }
-
-
+    let folders = ['Desktop', 'Downloads', 'Documents', 'Pictures', 'This PC']
 
     const maxStorage = 5 * 1024 * 1024 
 
@@ -60,16 +49,30 @@ const Folder =({})=>{
         })
     }
 
+    const updateData =()=>{
+        setNotes(notes)
+        setPaints(paints)
+    }
+
     useEffect(()=>{
         // call the function to calculate storage usesage when component loads
         calculateStorageUsage()
+        updateData()
 
-        // Set interval to call function every second
-        const intervalId = setInterval(calculateStorageUsage, 500)
+    }, [notes, paints, storageInfo])
 
-        // CLeanup the interval
-        return ()=>{
-            clearInterval(intervalId)
+    useEffect(()=>{
+        const handleStorageChange =()=>{
+            const updatedNotes = JSON.parse(localStorage.getItem('notes')) || []
+            const updatedPaints = JSON.parse(localStorage.getItem('paintSaves')) || []
+
+            setNotes(updatedNotes)
+            setPaints(updatedPaints)
+        }
+
+        window.addEventListener('storage', handleStorageChange)
+        return()=>{
+            window.removeEventListener('storage', handleStorageChange)
         }
     }, [])
 
@@ -93,7 +96,7 @@ const Folder =({})=>{
     
     const handleDelete =(title, fileType)=>{
 
-        const existingItems = JSON.parse(localStorage.getItem(fileType))
+        const existingItems = JSON.parse(localStorage.getItem(fileType)) || []
 
         // Find the note to be deleted
         const itemToDelete = existingItems.find((item)=> item.title === title)

@@ -8,9 +8,9 @@ const Mobile =()=>{
             <div className='header row'>
                 <div className='col'>6:40</div>
                 <div className='col'>icon</div>
-                <div className='col'>Wifi</div>
-                <div className='col'>Signal</div>
-                <div className='col'>Battery</div>
+                <div className='col'><img src='./mobileMedia/wifi.png' /></div>
+                <div className='col'><img src='./mobileMedia/5G.png' /></div>
+                <div className='col'><img src='./mobileMedia/battery-mid.png' /></div>
             </div>
 
             <div className='mobile-footer footer row'>

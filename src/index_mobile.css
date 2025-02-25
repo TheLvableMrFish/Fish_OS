@@ -1,5 +1,39 @@
+.mobile-header{
+    height: 6vh;
+    align-items: center;
+}
+
+.mobile-icon{
+    height: 3svh;
+    margin-left: 4px;
+    &:first-child{
+        height: 3.7svh;
+        margin-bottom: 3px;
+    }
+    &:last-child{
+        margin-right: -6px;
+    }
+}
+
 .mobile-footer{
+    height: 10svh;
     text-align: center;
     align-items: center;
 }
 
+.mobile-grid{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 12svh;
+
+}
+
+.mobile-grid-space{
+    display: flex;
+    border: 1px solid #000;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}

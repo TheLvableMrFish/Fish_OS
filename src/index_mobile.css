@@ -1,6 +1,7 @@
 .mobile-header{
     height: 6vh;
     align-items: center;
+    background-color: lightgray;
 }
 
 .mobile-icon{
@@ -32,7 +33,7 @@
 
 .mobile-grid-space{
     display: flex;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     align-items: center;
     justify-content: center;
     height: 100%;

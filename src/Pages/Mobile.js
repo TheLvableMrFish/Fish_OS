@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Application from '../components/Application'
 import MobileGrid from '../mobileComponents/MobileGrid'
 import MobileWindow from '../mobileComponents/MobileWindow'
+import MobileCalculator from '../MobileApps/MobileCalculator'
 
 import { application_data } from '../Data/applications_data_mobile'
 
@@ -51,14 +52,14 @@ const Mobile =()=>{
                     <img className='mobile-icon' src='./mobileMedia/battery-mid.png' />
                 </div>
             </div>
-
-            <MobileWindow 
+            <MobileCalculator />
+            {/* <MobileWindow 
                     mobile_windows_prop={applicationsOpen} 
                     // closeWindow={closeWindow}
                     // minWindow={minWindow}
-            />
+            /> */}
 
-            {application_data.map((app)=>(
+            {/* {application_data.map((app)=>(
                     <div onClick={()=> handleApplication(
                         app.id, 
                         app.title, 
@@ -75,9 +76,9 @@ const Mobile =()=>{
                             col={(app.col - 0.15) * 0.88}
                         />
                     </div>
-                ))}
+                ))} */}
 
-            <MobileGrid />
+            {/* <MobileGrid /> */}
 
             <div className='mobile-footer footer row'>
                 <div className='col'>{'| | |'}</div>

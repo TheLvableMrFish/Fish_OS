@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 
-import calculator from './AppsCSS/calculator.css'
+import mobile_calculator from './MobileAppsCSS/mobile_calculator.css'
 
-const Calculator =({})=>{
+const MobileCalculator =({})=>{
 
     const [calc, setCalc] = useState('')
     const [answer, setAnswer] = useState(false)
@@ -68,35 +68,36 @@ const Calculator =({})=>{
 
     return(
         <>
-        <div className='calculator-box container-fluid'>
+        <div className='mobile-calculator-box '>
             <div className='row'>
-                <div className='calculator-display col-12'>
+                <div className='mobile-calculator-display col-12'>
                     <div  className='calc'>{calc}</div>
                 </div>
-                
-                <div className='buttons row'>
-                    <div onClick={()=> handleCalc(7)} className='button col'>7</div>
-                    <div onClick={()=> handleCalc(8)} className='button col'>8</div>
-                    <div onClick={()=> handleCalc(9)} className='button col'>9</div>
-                    <div onClick={()=> handleCalc('C')} className='button col'>C</div>
-                </div>
-                <div className='buttons row'>
-                    <div onClick={()=> handleCalc(4)} className='button col'>4</div>
-                    <div onClick={()=> handleCalc(5)} className='button col'>5</div>
-                    <div onClick={()=> handleCalc(6)} className='button col'>6</div>
-                    <div onClick={()=> handleCalc('/')} className='button col'>/</div>
-                </div>
-                <div className='buttons row'>
-                    <div onClick={()=> handleCalc(1)} className='button col'>1</div>
-                    <div onClick={()=> handleCalc(2)} className='button col'>2</div>
-                    <div onClick={()=> handleCalc(3)} className='button col'>3</div>
-                    <div onClick={()=> handleCalc('*')} className='button col'>*</div>
-                </div>
-                <div className='buttons row'>
-                    <div onClick={()=> handleCalc('-')} className='button col'>-</div>
-                    <div onClick={()=> handleCalc(0)} className='button col'>0</div>
-                    <div onClick={()=> handleCalc('+')} className='button col'>+</div>
-                    <div onClick={()=> handleCalc('=')} className='button col'>=</div>
+                <div className='mobile-buttons-all'>
+                    <div className='mobile-buttons row'>
+                        <div onClick={()=> handleCalc(7)} className='mobile-button col-3'>7</div>
+                        <div onClick={()=> handleCalc(8)} className='mobile-button col-3'>8</div>
+                        <div onClick={()=> handleCalc(9)} className='mobile-button col-3'>9</div>
+                        <div onClick={()=> handleCalc('C')} className='mobile-button col-3'>C</div>
+                    </div>
+                    <div className='mobile-buttons row'>
+                        <div onClick={()=> handleCalc(4)} className='mobile-button col-3'>4</div>
+                        <div onClick={()=> handleCalc(5)} className='mobile-button col-3'>5</div>
+                        <div onClick={()=> handleCalc(6)} className='mobile-button col-3'>6</div>
+                        <div onClick={()=> handleCalc('/')} className='mobile-button col-3'>/</div>
+                    </div>
+                    <div className='mobile-buttons row'>
+                        <div onClick={()=> handleCalc(1)} className='mobile-button col-3'>1</div>
+                        <div onClick={()=> handleCalc(2)} className='mobile-button col-3'>2</div>
+                        <div onClick={()=> handleCalc(3)} className='mobile-button col-3'>3</div>
+                        <div onClick={()=> handleCalc('*')} className='mobile-button col-3'>*</div>
+                    </div>
+                    <div className='mobile-buttons row'>
+                        <div onClick={()=> handleCalc('-')} className='mobile-button col-3'>-</div>
+                        <div onClick={()=> handleCalc(0)} className='mobile-button col-3'>0</div>
+                        <div onClick={()=> handleCalc('+')} className='mobile-button col-3'>+</div>
+                        <div onClick={()=> handleCalc('=')} className='mobile-button col-3'>=</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -104,4 +105,4 @@ const Calculator =({})=>{
     )
 }
 
-export default Calculator
+export default MobileCalculator

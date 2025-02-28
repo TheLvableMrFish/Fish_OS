@@ -6,8 +6,8 @@ function App() {
   const ratio = window.innerWidth / window.innerHeight
   return (
     <div className="App">
-      <Mobile />
-      {/* {ratio > 1 ? <Desktop /> : <Mobile />} */}
+      {/* <Mobile /> */}
+      {ratio > 1 ? <Desktop /> : <Mobile />}
     </div>
   );
 }

@@ -2,6 +2,7 @@
     height: 6vh;
     align-items: center;
     background-color: lightgray;
+    font-size: 32px;
 }
 
 .mobile-icon{
@@ -20,6 +21,9 @@
     height: 10svh;
     text-align: center;
     align-items: center;
+    font-size: 36px;
+    background-color: rgba(0, 0,0, 0);
+    color: white;
 }
 
 .mobile-grid{

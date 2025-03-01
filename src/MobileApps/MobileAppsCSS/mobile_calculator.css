@@ -22,11 +22,12 @@ html{
     margin: 0 !important;
     overflow: hidden;
 
-    font-size: 32px;
-    text-align: right;
-    padding-right: 5px;
+    font-size: 64px;
+    text-align: left;
     border: #000 solid 5px;
-    padding-top: 129px;
+    /* padding-right: 15px;
+    padding-top: 115px; */
+    
 }
 
 .mobile-buttons-all{
@@ -47,7 +48,7 @@ html{
     color: white; 
     font-weight: 700;
     
-    font-size: 32px;
+    font-size: 62px;
 }
 
 .button:hover{

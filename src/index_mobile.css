@@ -1,15 +1,15 @@
 .mobile-header{
-    height: 6vh;
+    height: 6dvh;
     align-items: center;
     background-color: lightgray;
     font-size: 32px;
 }
 
 .mobile-icon{
-    height: 3svh;
+    height: 3dvh;
     margin-left: 4px;
     &:first-child{
-        height: 3.7svh;
+        height: 3.7dvh;
         margin-bottom: 3px;
     }
     &:last-child{
@@ -18,11 +18,11 @@
 }
 
 .mobile-footer{
-    height: 10svh;
+    height: 10dvh;
     text-align: center;
     align-items: center;
     font-size: 36px;
-    background-color: rgba(0, 0,0, 0);
+    /* background-color: rgba(0, 0,0, 0); */
     color: white;
 }
 
@@ -31,7 +31,7 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    height: 12svh;
+    height: 12dvh;
 
 }
 

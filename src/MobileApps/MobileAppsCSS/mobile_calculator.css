@@ -1,5 +1,5 @@
 html{
-    background-color: #000;
+    /* background-color: #000; */
 }
 
 .mobile-calculator-box{
@@ -12,13 +12,13 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000;
+    /* background-color: #000; */
     overflow: hidden;
 }
 
 .mobile-calculator-display{
     color: white;
-    background-color: #000;
+    /* background-color: #000; */
     margin: 0 !important;
     overflow: hidden;
 
@@ -32,7 +32,7 @@ html{
 
 .mobile-buttons-all{
     position: absolute;
-    bottom: 12svh;
+    bottom: dvh;
     border: 1px solid #000;
     background-color: #000;
 }

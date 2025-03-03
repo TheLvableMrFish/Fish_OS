@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-import mobile_notes_css from './AppsCSS/mobile_notes_css.css'
+import mobile_notes_css from './MobileAppsCSS/mobile_notes_css.css'
 
 const MobileNotes =({})=>{
 

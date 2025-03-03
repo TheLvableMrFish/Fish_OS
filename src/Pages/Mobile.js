@@ -5,6 +5,7 @@ import Application from '../components/Application'
 import MobileGrid from '../mobileComponents/MobileGrid'
 import MobileWindow from '../mobileComponents/MobileWindow'
 import MobileCalculator from '../MobileApps/MobileCalculator'
+import MobileNotes from '../MobileApps/MobileNotes'
 
 import { application_data } from '../Data/applications_data_mobile'
 
@@ -52,7 +53,8 @@ const Mobile =()=>{
                     <img className='mobile-icon' src='./mobileMedia/battery-mid.png' />
                 </div>
             </div>
-            <MobileCalculator />
+            {/* <MobileCalculator /> */}
+            {/* <MobileNotes /> */}
             {/* <MobileWindow 
                     mobile_windows_prop={applicationsOpen} 
                     // closeWindow={closeWindow}

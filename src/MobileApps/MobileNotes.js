@@ -8,9 +8,9 @@ const MobileNotes =({})=>{
     const [title, setTitle] = useState('Title')
     const [editTitle, setEditTitle] = useState(false)
     const [openMobileNotes, setOpenMobileNotes] = useState(false)
-    const [note, setNote] = useState('')
+    const [MobileNotes, setMobileNotes] = useState('')
 
-    const [MobileNotes, setMobileNotes] = useState([])
+  
 
     const handleStartEdit=()=>{
         setEditTitle(true)
@@ -24,14 +24,14 @@ const MobileNotes =({})=>{
     }
 
     const handleSave=()=>{
-        const existingMobileNotes = JSON.parse(localStorage.getItem('MobileNotes')) || []
+        const existingMobileNotes = JSON.parse(localStorage.getItem('Notes')) || []
 
         const noteIndex = existingMobileNotes.findIndex((n)=> n.title === title)
 
         if (noteIndex !== -1){
-            existingMobileNotes[noteIndex].note = note
+            existingMobileNotes[noteIndex].MobileNotes = MobileNotes
         } else {
-            existingMobileNotes.push({title, note})
+            existingMobileNotes.push({title, MobileNotes})
         }
 
         localStorage.setItem('Notes', JSON.stringify(existingMobileNotes))
@@ -40,7 +40,7 @@ const MobileNotes =({})=>{
 
     const handleNewNote=()=>{
         setTitle('Title')
-        setNote('')
+        setMobileNotes('')
     }
 
     const handleOpen =()=>{
@@ -52,7 +52,7 @@ const MobileNotes =({})=>{
 
     const handleOpenNote =(title, note)=>{
         setTitle(title)
-        setNote(note)
+        setMobileNotes(note)
         setOpenMobileNotes(false)
     }
 
@@ -100,8 +100,8 @@ const MobileNotes =({})=>{
                     type='textarea' 
                     id='note' 
                     name='note'
-                    value={note}
-                    onChange={(e)=> setNote(e.target.value)}
+                    value={MobileNotes}
+                    onChange={(e)=> setMobileNotes(e.target.value)}
                 />
                         
                 {openMobileNotes && <div className='mobile-notes-open-list container-fluid'>

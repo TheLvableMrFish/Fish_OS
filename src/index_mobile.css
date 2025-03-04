@@ -1,3 +1,7 @@
+.mobile-container{
+    overflow: hidden !important;
+}
+
 .mobile-header{
     height: 6dvh;
     align-items: center;

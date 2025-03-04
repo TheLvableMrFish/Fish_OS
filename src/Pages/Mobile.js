@@ -44,7 +44,7 @@ const Mobile =()=>{
     return(
         <>
 
-        <div className='container-fluid'>
+        <div className='moblie-container container-fluid'>
             <div className='mobile-header header row'>
                 <div className='mobile-header-item col'>6:40</div>
                 <div className='mobile-header-item col-auto'>
@@ -54,7 +54,7 @@ const Mobile =()=>{
                 </div>
             </div>
             {/* <MobileCalculator /> */}
-            {/* <MobileNotes /> */}
+            <MobileNotes />
             {/* <MobileWindow 
                     mobile_windows_prop={applicationsOpen} 
                     // closeWindow={closeWindow}

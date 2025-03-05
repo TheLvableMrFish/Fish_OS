@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 
 import mobile_notes_css from './MobileAppsCSS/mobile_notes_css.css'
@@ -10,7 +10,7 @@ const MobileNotes =({})=>{
     const [openMobileNotes, setOpenMobileNotes] = useState(false)
     const [MobileNotes, setMobileNotes] = useState('')
 
-  
+    useEffect(()=>{console.log(localStorage.getItem('notes'))})
 
     const handleStartEdit=()=>{
         setEditTitle(true)
@@ -24,7 +24,7 @@ const MobileNotes =({})=>{
     }
 
     const handleSave=()=>{
-        const existingMobileNotes = JSON.parse(localStorage.getItem('Notes')) || []
+        const existingMobileNotes = JSON.parse(localStorage.getItem('notes')) || []
 
         const noteIndex = existingMobileNotes.findIndex((n)=> n.title === title)
 
@@ -34,8 +34,8 @@ const MobileNotes =({})=>{
             existingMobileNotes.push({title, MobileNotes})
         }
 
-        localStorage.setItem('Notes', JSON.stringify(existingMobileNotes))
-        console.log(JSON.parse(localStorage.getItem('Notes')))
+        localStorage.setItem('notes', JSON.stringify(existingMobileNotes))
+        console.log(JSON.parse(localStorage.getItem('notes')))
     }
 
     const handleNewNote=()=>{
@@ -45,7 +45,7 @@ const MobileNotes =({})=>{
 
     const handleOpen =()=>{
         setOpenMobileNotes(true)
-        const existingMobileNotes = JSON.parse(localStorage.getItem('Notes')) || []
+        const existingMobileNotes = JSON.parse(localStorage.getItem('notes')) || []
         setMobileNotes(existingMobileNotes)
         console.log(MobileNotes)
     }

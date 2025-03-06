@@ -8,6 +8,7 @@ const MobileNotes =({})=>{
     const [title, setTitle] = useState('Title')
     const [editTitle, setEditTitle] = useState(false)
     const [openMobileNotes, setOpenMobileNotes] = useState(false)
+    const [MobileNote, setMobileNote] = useState('')
     const [MobileNotes, setMobileNotes] = useState('')
 
     useEffect(()=>{console.log(localStorage.getItem('notes'))})
@@ -47,7 +48,6 @@ const MobileNotes =({})=>{
         setOpenMobileNotes(true)
         const existingMobileNotes = JSON.parse(localStorage.getItem('notes')) || []
         setMobileNotes(existingMobileNotes)
-        console.log(MobileNotes)
     }
 
     const handleOpenNote =(title, note)=>{
@@ -127,10 +127,10 @@ const MobileNotes =({})=>{
                                         ${index === MobileNotes.length - 1 ?
                                         'mobile-notes-open-item-border-radius-edit' :
                                         ''} col-3`}
-                                    onClick={()=>handleOpenNote(note.title, note.note)}
+                                    onClick={()=>handleOpenNote(note.title, MobileNote.note)}
                                 >{note.title}</div>
                                 <div 
-                                    className='mobile-notes-open-item-text col-8'>{note.note}</div>
+                                    className='mobile-notes-open-item-text col-8'>{note.MobileNotes}</div>
                             </React.Fragment>
                         )) : <div className='mobile-notes-open-empty'>
                             No MobileNotes yet.

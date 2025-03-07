@@ -30,9 +30,9 @@ const MobileNotes =({})=>{
         const noteIndex = existingMobileNotes.findIndex((n)=> n.title === title)
 
         if (noteIndex !== -1){
-            existingMobileNotes[noteIndex].MobileNotes = MobileNotes
+            existingMobileNotes[noteIndex].MobileNote = MobileNote
         } else {
-            existingMobileNotes.push({title, MobileNotes})
+            existingMobileNotes.push({title, MobileNote})
         }
 
         localStorage.setItem('notes', JSON.stringify(existingMobileNotes))
@@ -100,8 +100,8 @@ const MobileNotes =({})=>{
                     type='textarea' 
                     id='note' 
                     name='note'
-                    value={MobileNotes}
-                    onChange={(e)=> setMobileNotes(e.target.value)}
+                    value={MobileNote}
+                    onChange={(e)=> setMobileNote(e.target.value)}
                 />
                         
                 {openMobileNotes && <div className='mobile-notes-open-list container-fluid'>

@@ -51,7 +51,7 @@ html{
     font-size: 62px;
 }
 
-.button:hover{
+.mobile-button:hover{
     box-shadow: none;
     background: hsl(0, 0%, 69%);
     background-color: #000;

@@ -8,7 +8,7 @@ const MobileNotes =({})=>{
     const [title, setTitle] = useState('Title')
     const [editTitle, setEditTitle] = useState(false)
     const [openMobileNotes, setOpenMobileNotes] = useState(false)
-    const [MobileNote, setMobileNote] = useState('')
+    const [note, setNote] = useState('')
     const [MobileNotes, setMobileNotes] = useState('')
 
     useEffect(()=>{console.log(localStorage.getItem('notes'))})
@@ -30,9 +30,9 @@ const MobileNotes =({})=>{
         const noteIndex = existingMobileNotes.findIndex((n)=> n.title === title)
 
         if (noteIndex !== -1){
-            existingMobileNotes[noteIndex].MobileNote = MobileNote
+            existingMobileNotes[noteIndex].note = note
         } else {
-            existingMobileNotes.push({title, MobileNote})
+            existingMobileNotes.push({title, note})
         }
 
         localStorage.setItem('notes', JSON.stringify(existingMobileNotes))
@@ -52,7 +52,7 @@ const MobileNotes =({})=>{
 
     const handleOpenNote =(title, note)=>{
         setTitle(title)
-        setMobileNotes(note)
+        setNote(note)
         setOpenMobileNotes(false)
     }
 
@@ -100,8 +100,8 @@ const MobileNotes =({})=>{
                     type='textarea' 
                     id='note' 
                     name='note'
-                    value={MobileNote}
-                    onChange={(e)=> setMobileNote(e.target.value)}
+                    value={note}
+                    onChange={(e)=> setNote(e.target.value)}
                 />
                         
                 {openMobileNotes && <div className='mobile-notes-open-list container-fluid'>
@@ -127,10 +127,10 @@ const MobileNotes =({})=>{
                                         ${index === MobileNotes.length - 1 ?
                                         'mobile-notes-open-item-border-radius-edit' :
                                         ''} col-3`}
-                                    onClick={()=>handleOpenNote(note.title, MobileNote.note)}
+                                    onClick={()=>handleOpenNote(note.title, note.note)}
                                 >{note.title}</div>
                                 <div 
-                                    className='mobile-notes-open-item-text col-8'>{note.MobileNotes}</div>
+                                    className='mobile-notes-open-item-text col-8'>{note.note}</div>
                             </React.Fragment>
                         )) : <div className='mobile-notes-open-empty'>
                             No MobileNotes yet.

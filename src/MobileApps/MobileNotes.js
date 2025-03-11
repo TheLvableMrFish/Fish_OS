@@ -59,6 +59,7 @@ const MobileNotes =({})=>{
     return(
         <>
             <div className='mobile-notes-box container-fluid'>
+                <div className='mobile-notes-header'>Notes:</div>
 
                     {!editTitle && 
                         <div className='mobile-notes-text-edit-container row'>

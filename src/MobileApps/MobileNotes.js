@@ -106,19 +106,19 @@ const MobileNotes =({})=>{
                 />
                         
                 {openMobileNotes && <div className='mobile-notes-open-list container-fluid'>
-                    <div className='window-header mobile-notes-open-header container-fluid'>
-                        <img className='window-logo' src='./media/clam_color.png' />
-                        <div className='window-title'>Documents</div>
+                    {/* <div className='window-header mobile-notes-open-header container-fluid'> */}
+                        {/* <img className='window-logo' src='./media/clam_color.png' /> */}
+                        {/* <div className='window-title'>Documents</div> */}
                         <div className='window-widgets-container'>
-                            <div 
+                            {/* <div 
                                 className='window-close-btn window-widget'
                             ><img 
                                 className='window-widget-img' 
                                 onClick={()=>{setOpenMobileNotes(false)}}
                                 src='./media/close2.png'
-                            /></div>
+                            /></div> */}
                         </div>
-                    </div>
+                    {/* </div> */}
                     <div className='mobile-notes-scrollable-container'>
                     <div className='row'>
                         {MobileNotes.length > 0 ? MobileNotes.map((note, index)=>(

@@ -99,8 +99,8 @@ const MobileNotes =({})=>{
                 <textarea 
                     className='mobile-notes-text-box' 
                     type='textarea' 
-                    id='note' 
-                    name='note'
+                    id='mobileNote' 
+                    name='mobileNote'
                     value={note}
                     onChange={(e)=> setNote(e.target.value)}
                 />

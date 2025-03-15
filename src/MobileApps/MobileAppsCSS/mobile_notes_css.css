@@ -6,6 +6,7 @@
     width: 100%;
     height: 76dvh !important;
     height: fit-content;
+    border: 0px solid white;
 }
 
 .mobile-notes-text-label{

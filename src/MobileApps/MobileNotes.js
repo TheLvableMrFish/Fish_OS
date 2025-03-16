@@ -134,7 +134,6 @@ const MobileNotes =({})=>{
                         )) : <div className='mobile-notes-open-empty'>
                             No MobileNotes yet.
                             Try writing something and then 
-                            <br />
                             press the save button! 
                         </div>}
 

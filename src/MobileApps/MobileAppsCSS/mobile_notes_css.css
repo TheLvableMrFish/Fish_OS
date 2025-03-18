@@ -10,6 +10,9 @@
     &:active{
         border: none;
     }
+    &:hover{
+        border: none;
+    }
 }
 
 .mobile-notes-text-label{

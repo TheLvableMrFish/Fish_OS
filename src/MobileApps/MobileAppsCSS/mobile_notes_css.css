@@ -12,7 +12,7 @@
         border: none;
     }
     &:hover{
-        border: none;
+        border: 1px solid red;
     }
 }
 

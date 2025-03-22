@@ -7,7 +7,7 @@
     height: 76dvh !important;
     height: fit-content;
     border: none;
-    border: dotted 1px blue;
+    border: solid 1px blue;
     &:active{
         border: none;
     }
